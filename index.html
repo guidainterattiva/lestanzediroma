@@ -278,8 +278,38 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
   .nav-logo img{height:36px}
   .nav-logo-text{font-size:.9rem}
 }
+/* ── STORIA DI ROMA ── */
+.storia-timeline{display:flex;flex-direction:column;gap:0}
+.storia-era{display:grid;grid-template-columns:180px 1fr;gap:0;border-left:2px solid rgba(191,153,64,.2);margin-left:1rem}
+.storia-era-header{padding:1.5rem 2rem 1.5rem 0;position:relative}
+.storia-era-header::before{content:"";position:absolute;left:-9px;top:1.9rem;width:16px;height:16px;border-radius:50%;border:2px solid var(--gold);background:var(--ivory)}
+.storia-era-date{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.storia-era-title{font-family:"Cormorant Garamond",serif;font-size:1.15rem;font-weight:400;color:var(--dark);line-height:1.2}
+.storia-era-title em{font-style:italic;color:var(--terra)}
+.storia-era-body{padding:1.5rem 0 2.5rem 2rem;border-left:none}
+.storia-era-body p{font-size:.88rem;font-weight:300;color:var(--brown);line-height:1.85}
+.storia-era-body p strong{color:var(--dark);font-weight:600}
+.storia-luoghi{margin-top:.8rem}
+.storia-luogo-tag{font-size:.72rem;font-weight:600;letter-spacing:.1em;color:var(--gold);background:rgba(191,153,64,.08);border:1px solid rgba(191,153,64,.2);padding:.3rem .8rem;display:inline-block}
+.storia-tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem}
+.storia-tip-card{background:var(--ivory-mid);padding:1.8rem 1.5rem;border-top:3px solid var(--gold)}
+.storia-tip-card .storia-tip-icon{font-size:1.6rem;margin-bottom:.8rem}
+.storia-tip-card h4{font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--dark);margin-bottom:.5rem}
+.storia-tip-card p{font-size:.82rem;font-weight:300;color:var(--brown);line-height:1.7}
+/* ── COVER PHOTO BTN ── */
+.photo-cover-btn{background:none;border:none;cursor:pointer;font-size:1rem;padding:0 .15rem;transition:transform .2s;flex-shrink:0;line-height:1}
+.photo-cover-btn:hover{transform:scale(1.2)}
+/* ── GALLERY MAP BTN ── */
+.gallery-map-btn{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);border:1px solid rgba(191,153,64,.4);padding:.5rem 1.1rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .25s}
+.gallery-map-btn:hover{background:var(--gold);color:var(--dark)}
+@media(max-width:900px){
+  .storia-era{grid-template-columns:1fr;margin-left:.5rem}
+  .storia-era-header{padding:1rem 1rem .3rem}
+  .storia-era-body{padding:.5rem 1rem 2rem}
+  .storia-tips-grid{grid-template-columns:1fr}
+}
 </style>
-<script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano.jpeg?updatedAt=1774812500567","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano2.jpeg?updatedAt=1774812500862","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto2.jpeg?updatedAt=1774812500864","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto.jpeg?updatedAt=1774812500878","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/cucina.jpeg?updatedAt=1774812500865","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/fuori.jpeg?updatedAt=1774812500855","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno2.jpeg?updatedAt=1774812500856","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno1.jpeg?updatedAt=1774812500559","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/palazzo.jpeg?updatedAt=1774812833931","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/ingresso.jpeg?updatedAt=1774812833739"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script></head>
+<script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano.jpeg?updatedAt=1774812500567","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano2.jpeg?updatedAt=1774812500862","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto2.jpeg?updatedAt=1774812500864","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto.jpeg?updatedAt=1774812500878","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/cucina.jpeg?updatedAt=1774812500865","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/fuori.jpeg?updatedAt=1774812500855","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno2.jpeg?updatedAt=1774812500856","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno1.jpeg?updatedAt=1774812500559","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/palazzo.jpeg?updatedAt=1774812833931","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/ingresso.jpeg?updatedAt=1774812833739"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"","parking":"","parking_link":""}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac"}];</script></head>
 <body>
 
 <nav id="navbar">
@@ -293,6 +323,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
     <li><a href="https://lestanzedisharm.com" target="_blank" data-t="nav_investi">Investi</a></li>
     <li><a href="#collabora" data-t="nav_collabora">Collabora</a></li>
     <li><a href="#chi-siamo" data-t="nav_chi">Chi siamo</a></li>
+    <li><a href="#storia-roma" data-t="nav_storia">Storia</a></li>
     <li><a href="#servizi" data-t="nav_servizi">Servizi</a></li>
     <li><a href="#contatti" class="nav-cta" data-t="nav_contatti">Contatti</a></li>
   </ul>
@@ -307,6 +338,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
   <a href="https://lestanzedisharm.com" target="_blank" class="drawer-link" data-t="drawer_investi">Investi a Sharm</a>
   <a href="#collabora" class="drawer-link" data-t="drawer_collabora">Collabora con noi</a>
   <a href="#chi-siamo" class="drawer-link" data-t="drawer_chi">Chi siamo</a>
+  <a href="#storia-roma" class="drawer-link" data-t="drawer_storia">Storia di Roma</a>
   <a href="#servizi" class="drawer-link" data-t="drawer_servizi">Servizi</a>
   <a href="#contatti" class="drawer-link" data-t="drawer_contatti">Contatti</a>
   <a href="#apri-stanza" class="drawer-link" data-t="drawer_apri">Apri una Stanza</a>
@@ -318,7 +350,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
   <div class="hero-bg"></div>
   <div class="hero-ornament"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow" data-t="hero_eyebrow">Il Progetto Le Stanze · Roma</p>
+    <p class="hero-eyebrow" data-t="hero_eyebrow">Il Progetto Le Stanze di Roma</p>
     <h1 class="hero-title" data-t="hero_title">Camere e appartamenti<br>nel <em>cuore</em> di Roma</h1>
     <p class="hero-subtitle" data-t="hero_sub">Soggiorna nelle strutture selezionate del progetto Le Stanze.<br>Un'ospitalità autentica, pensata per chi vuole vivere la città davvero.</p>
     <div class="hero-actions">
@@ -380,6 +412,8 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
       <span class="gallery-room-tag" id="galleryTag">–</span>
       <p class="gallery-room-desc" id="galleryDesc">–</p>
       <a href="#contatti" class="btn-primary" onclick="closeGallery()" data-t="gallery_cta">Richiedi informazioni →</a>
+      <div id="galleryMapBtn" style="margin-top:1.2rem"></div>
+      <div id="galleryParking" style="margin-top:.8rem;padding:.8rem 1rem;background:var(--ivory-mid);font-size:.85rem;color:var(--brown);line-height:1.7;display:none;border-left:3px solid var(--gold)"></div>
     </div>
   </div>
 </div>
@@ -521,10 +555,145 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
       <p class="section-text" data-t="serv_text">Oltre all'ospitalità, offriamo servizi pensati per rendere il tuo soggiorno un'esperienza completa.</p>
     </div>
     <div class="servizi-grid reveal" style="transition-delay:.1s">
-      <div class="servizio-card"><div class="servizio-icon">🚕</div><div class="servizio-title" data-t="sv1_title">Taxi &amp; Transfer</div><p class="servizio-desc" data-t="sv1_text">Servizio di trasporto privato per aeroporto, stazione e spostamenti in città.</p></div>
+      <div class="servizio-card"><div class="servizio-icon">🚗</div><div class="servizio-title" data-t="sv1_title">NCC &amp; Transfer</div><p class="servizio-desc" data-t="sv1_text">Disponiamo di NCC che possono attendervi in aeroporto o riaccompagnarvi. Qualsiasi cosa chiediate, organizziamo il transfer su misura per voi.</p></div>
       <div class="servizio-card"><div class="servizio-icon">🏛️</div><div class="servizio-title" data-t="sv2_title">Gite Turistiche</div><p class="servizio-desc" data-t="sv2_text">Tour guidati ed esperienze nella città eterna.</p></div>
       <div class="servizio-card"><div class="servizio-icon">🍽️</div><div class="servizio-title" data-t="sv3_title">Accordi Ristoranti</div><p class="servizio-desc" data-t="sv3_text">Convenzioni con ristoranti selezionati.</p></div>
       <div class="servizio-card"><div class="servizio-icon">📋</div><div class="servizio-title" data-t="sv4_title">Gestione Prenotazioni</div><p class="servizio-desc" data-t="sv4_text">Gestiamo prenotazioni, comunicazioni e check-in al posto tuo.</p></div>
+      <div class="servizio-card"><div class="servizio-icon"><img src="https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260421-WA0006.jpg" alt="Bicycle Roma" style="width:56px;height:56px;object-fit:contain;border-radius:6px"></div><div class="servizio-title" data-t="sv5_title">Bicycle Roma</div><p class="servizio-desc" data-t="sv5_text">Esplora Roma in bici! Grazie alla nostra collaborazione con Bicycle Roma, i nostri ospiti possono noleggiare biciclette di qualità per scoprire la città eterna in modo autentico e sostenibile.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="storia-roma" style="background:var(--ivory)">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Per i nostri ospiti</p>
+      <h2 class="section-title">Roma: <em>2800 anni di storia</em></h2>
+      <div class="divider"></div>
+      <p class="section-text">La città eterna è un libro di storia a cielo aperto. Ecco una guida essenziale per orientarsi tra i suoi secoli più importanti e scoprire i luoghi che ancora oggi raccontano la sua grandezza.</p>
+    </div>
+
+    <!-- Timeline storica -->
+    <div class="storia-timeline reveal" style="transition-delay:.1s;margin-top:3.5rem">
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">753 a.C.</div>
+          <div class="storia-era-title">La Fondazione <em>di Roma</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p>Secondo la leggenda, Roma fu fondata da <strong>Romolo</strong> il 21 aprile del 753 a.C. sul colle Palatino. La città nacque come piccolo villaggio di pastori, destinato a diventare il centro del mondo antico. I primi secoli videro alternarsi sette re, da Romolo a Tarquinio il Superbo, che plasmarono le fondamenta della futura civiltà romana.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Colle Palatino · Circo Massimo · Foro Romano</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">509 – 27 a.C.</div>
+          <div class="storia-era-title">La Repubblica <em>Romana</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p>Con la cacciata dell'ultimo re, Roma divenne una <strong>Repubblica</strong> governata da due consoli eletti annualmente e dal Senato. Fu l'epoca delle grandi conquiste: dall'Italia peninsulare al Mediterraneo, Roma costruì un impero che cambiò per sempre la storia europea. Grandi personalità come <strong>Giulio Cesare</strong>, Cicerone e Scipione l'Africano segnarono questi secoli di gloria e conflitti civili.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Senato Romano · Colosseo (iniziato) · Via Appia Antica</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">27 a.C. – 476 d.C.</div>
+          <div class="storia-era-title">L'Impero <em>Romano</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p><strong>Augusto</strong>, primo imperatore, trasformò Roma in marmo e la rese capitale di un impero che si estendeva dalla Britannia alla Mesopotamia. Il <strong>Colosseo</strong> fu costruito nel 72 d.C., il <strong>Pantheon</strong> nel 125 d.C. sotto Adriano. Roma raggiunse quasi un milione di abitanti: fu la città più grande del mondo antico. La caduta dell'Impero d'Occidente nel 476 segnò la fine di un'era.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Colosseo · Pantheon · Foro di Traiano · Terme di Caracalla</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">IV – XV secolo</div>
+          <div class="storia-era-title">Roma <em>Cristiana e Medievale</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p>Con Costantino e l'Editto di Milano (313 d.C.), Roma divenne il cuore della <strong>Cristianità</strong>. Si costruirono le prime grandi basiliche: San Giovanni in Laterano, Santa Maria Maggiore, San Pietro. Nel Medioevo la città si svuotò (da un milione a 20.000 abitanti), ma rimase il centro spirituale d'Europa. Il <strong>Vaticano</strong> divenne la sede permanente dei Papi e il simbolo della fede cattolica nel mondo.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Basilica di San Pietro · Castel Sant'Angelo · Trastevere medievale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">XV – XVII secolo</div>
+          <div class="storia-era-title">Il Rinascimento <em>e il Barocco</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p>I grandi Papi del Rinascimento — da Sisto IV a Giulio II — trasformarono Roma in <strong>capitale dell'arte mondiale</strong>. <strong>Michelangelo</strong> affrescò la Cappella Sistina (1508–1512) e progettò la cupola di San Pietro. <strong>Raffaello</strong> decorò le Stanze Vaticane. Nel Seicento, <strong>Gian Lorenzo Bernini</strong> creò la fontana dei Fiumi in Piazza Navona e la maestosa Piazza San Pietro. Roma divenne la città barocca per eccellenza.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Cappella Sistina · Piazza Navona · Fontana di Trevi · Villa Borghese</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="storia-era">
+        <div class="storia-era-header">
+          <div class="storia-era-date">1870 – Oggi</div>
+          <div class="storia-era-title">Roma Capitale <em>d'Italia</em></div>
+        </div>
+        <div class="storia-era-body">
+          <p>Nel 1870 Roma divenne la <strong>capitale del Regno d'Italia</strong>, dopo che le truppe piemontesi aprirono una breccia nelle mura aureliane a Porta Pia. Nel Novecento Mussolini costruì EUR e i Fori Imperiali moderni. Oggi Roma è una metropoli di <strong>4 milioni di abitanti</strong>, capitale di uno dei paesi più visitati al mondo, con oltre 30 milioni di turisti all'anno. Tre siti UNESCO, 900 chiese, migliaia di anni di storia — tutto in un'unica città.</p>
+          <div class="storia-luoghi">
+            <span class="storia-luogo-tag">📍 Da vedere: Altare della Patria · Prati · Trastevere · Piazza del Popolo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Consigli pratici per i turisti -->
+    <div class="storia-tips reveal" style="transition-delay:.2s;margin-top:4rem">
+      <p class="section-eyebrow" style="margin-bottom:1.2rem">Consigli per i Visitatori</p>
+      <div class="storia-tips-grid">
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">🎫</div>
+          <h4>Prenota in anticipo</h4>
+          <p>Colosseo, Cappella Sistina e Musei Vaticani hanno code lunghissime. Prenota online almeno 3–4 giorni prima, o acquista biglietti "salta fila".</p>
+        </div>
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">👟</div>
+          <h4>Scarpe comode</h4>
+          <p>Il centro storico si esplora a piedi sui sampietrini. Porta scarpe comode: tra un monumento e l'altro le distanze sono brevi ma il terreno è irregolare.</p>
+        </div>
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">🌅</div>
+          <h4>Orari di punta</h4>
+          <p>Visita i luoghi più affollati (Trevi, Colosseo, Vaticano) la mattina presto o dopo le 17:00. La luce dorata del tramonto romano è un bonus gratuito.</p>
+        </div>
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">🍕</div>
+          <h4>Mangia come un romano</h4>
+          <p>Evita i ristoranti con foto plastificate vicino ai monumenti. Allontanati di 2–3 strade e scopri le trattorie dove mangiano i romani: migliore qualità, prezzi dimezzati.</p>
+        </div>
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">🚇</div>
+          <h4>Muoversi in città</h4>
+          <p>La metro ha solo 3 linee. Bus e tram coprono meglio il centro storico. I biglietti BIT (100 min) costano 1,50€. L'app "Moovit" è ottima per gli itinerari.</p>
+        </div>
+        <div class="storia-tip-card">
+          <div class="storia-tip-icon">💧</div>
+          <h4>Acqua gratuita</h4>
+          <p>Le "nasoni" — le fontanelle pubbliche romane — erogano acqua potabile freschissima in tutta la città. Porta una borraccia e risparmia sull'acqua in bottiglia.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="#contatti" class="btn-primary">Chiedi a noi — ti aiutiamo a pianificare la tua visita 🗺️</a>
+      </div>
     </div>
   </div>
 </section>
@@ -581,7 +750,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
 
 <!-- ── FLOATING WHATSAPP BUTTON ── -->
 <a id="waFloat" href="https://wa.me/393932626399" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
 </a>
 
 <!-- ── COOKIE BANNER ── -->
@@ -629,6 +798,18 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
           <p class="photos-count" id="pendingCount">Nessuna foto aggiunta</p>
         </div>
         <button class="admin-add-btn" onclick="addRoom()">Aggiungi Stanza</button>
+        <div class="full" style="margin-top:.5rem;padding-top:1rem;border-top:1px solid rgba(191,153,64,.15)">
+          <label class="admin-label">📍 Link Google Maps (posizione appartamento)</label>
+          <input type="url" class="admin-field" id="aMapLink" placeholder="https://maps.app.goo.gl/...">
+        </div>
+        <div class="full">
+          <label class="admin-label">🅿️ Parcheggio / Garage (descrizione)</label>
+          <textarea class="admin-field" id="aParking" rows="1" style="resize:vertical" placeholder="Es. Garage Prati, Via Candia 10 — 5 min a piedi"></textarea>
+        </div>
+        <div class="full">
+          <label class="admin-label">🗺️ Link Google Maps Parcheggio</label>
+          <input type="url" class="admin-field" id="aParkingLink" placeholder="https://maps.app.goo.gl/...">
+        </div>
       </div>
       <div class="admin-section-title">🏠 Stanze presenti</div>
       <div class="admin-rooms-list" id="adminRoomsList"></div>
@@ -652,7 +833,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
 
 <script>
 // ── TRANSLATIONS ─────────────────────────────────────────
-const TRANSLATIONS = {"it": {"lang_btn": "EN", "nav_stanze": "Le Stanze", "nav_sharm": "Sharm", "nav_investi": "Investi", "nav_collabora": "Collabora", "nav_chi": "Chi siamo", "nav_servizi": "Servizi", "nav_contatti": "Contatti", "drawer_stanze": "Le Stanze di Roma", "drawer_sharm": "Le Stanze di Sharm", "drawer_investi": "Investi a Sharm", "drawer_collabora": "Collabora con noi", "drawer_chi": "Chi siamo", "drawer_servizi": "Servizi", "drawer_contatti": "Contatti", "drawer_apri": "Apri una Stanza", "drawer_slogan": "Le Stanze di Roma · Vivi Roma, come a casa.", "hero_eyebrow": "Il Progetto Le Stanze · Roma", "hero_title": "Camere e appartamenti<br>nel <em>cuore</em> di Roma", "hero_sub": "Soggiorna nelle strutture selezionate del progetto Le Stanze.<br>Un'ospitalità autentica, pensata per chi vuole vivere la città davvero.", "btn_stanze": "Scopri le Stanze", "btn_collabora": "Collabora con noi", "welcome_eyebrow": "Benvenuto", "welcome_title": "Un progetto di ospitalità <em>autentica</em>", "welcome_text": "Le Stanze di Roma è un progetto dedicato ai viaggiatori che vogliono vivere la città in modo autentico. Offriamo camere e appartamenti selezionati in zone strategiche della capitale, ideali per turismo, lavoro o soggiorni brevi.", "f1_title": "Comfort e praticità", "f1_text": "Ogni struttura è pensata per offrire un'esperienza semplice e piacevole.", "f2_title": "Zone strategiche", "f2_text": "Strutture ben collegate, a due passi dalle principali attrazioni della capitale.", "f3_title": "Rete in crescita", "f3_text": "Un format in espansione, da Sharm el Sheikh fino al cuore di Roma.", "quote": "\"Ogni stanza prende il nome di persone a noi care che amiamo.\"", "card_sub": "Le Stanze di Roma — Ospitalità Selezionata", "card_badge": "Prenota ora", "stanze_eyebrow": "Le nostre strutture", "stanze_title": "Le Stanze <em>di Roma</em>", "btn_disponibilita": "Richiedi disponibilità", "overlay_scopri": "Scopri la stanza", "gallery_cta": "Richiedi informazioni →", "sharm_cta_eyebrow": "Scopri anche", "sharm_cta_title": "Le Stanze <em style=\"color:var(--gold)\">di Sharm</em>", "sharm_cta_text": "Il progetto nasce a Sharm el Sheikh, una delle mete turistiche più amate del Mar Rosso. Camere e appartamenti all'interno di resort e residence per vivere il mare tutto l'anno.", "btn_scopri_sharm": "Scopri Le Stanze di Sharm →", "sf1": "Resort e residence selezionati sul Mar Rosso", "sf2": "Ideale per vacanze, soggiorni lunghi e remote working", "sf3": "Strutture vicino alle spiagge e ai servizi principali", "sf4": "Opportunità di investimento immobiliare", "btn_investi_sharm": "Investi a Sharm →", "lsr_eyebrow": "Le nostre strutture", "lsr_title": "Perché scegliere <em>Le Stanze</em>", "lsr_text": "Le Stanze di Roma offre camere e appartamenti in zone ben collegate della città. Ogni struttura è selezionata per offrire comfort, tranquillità e facilità di accesso alle principali attrazioni.", "id1_title": "Turisti", "id1_text": "Soggiorna nel cuore di Roma, vicino ai monumenti e alla cultura della capitale.", "id2_title": "Lavoratori", "id2_text": "Strutture confortevoli per chi è in città per lavoro, con tutto il necessario.", "id3_title": "Soggiorni brevi", "id3_text": "Flessibilità e comfort per soggiorni di qualsiasi durata, senza pensieri.", "id4_title": "Smart Working", "id4_text": "Ambienti tranquilli e ben connessi, ideali per lavorare da remoto in pieno stile romano.", "sharm_eyebrow": "Mar Rosso · Egitto", "sharm_title": "Le Stanze <em>di Sharm</em>", "sharm_text": "Il progetto Le Stanze di Sharm nasce nel cuore del Mar Rosso, a Sharm el Sheikh. Offriamo camere e appartamenti all'interno di resort e residence selezionati, ideali per vivere il mare, il sole e il relax.", "btn_investi2": "Investi a Sharm", "btn_info": "Informazioni", "sharm_pf": "Perfetto per", "sl1": "Vacanze al mare tutto l'anno", "sl2": "Soggiorni lunghi e residenza temporanea", "sl3": "Lavoro da remoto con vista sul Mar Rosso", "sl4": "Investimento immobiliare turistico", "inv_eyebrow": "Opportunità", "inv_title": "Investire a <em>Sharm el Sheikh</em>", "inv_text": "Sharm el Sheikh rappresenta oggi una delle opportunità immobiliari più interessanti nel turismo internazionale. I prezzi degli appartamenti sono ancora accessibili e il turismo è in costante crescita.", "btn_parla": "Visita lestanzedisharm.com →", "ic1_title": "Prezzi accessibili", "ic1_text": "Il mercato immobiliare di Sharm offre prezzi ancora competitivi rispetto ad altre destinazioni turistiche internazionali.", "ic2_title": "Turismo in crescita", "ic2_text": "Sharm el Sheikh registra flussi turistici in costante aumento, con domanda elevata di affitti brevi e residenze.", "ic3_title": "Gestione affidata a noi", "ic3_text": "Attraverso il progetto Le Stanze ti supportiamo nella ricerca e nella gestione completa degli affitti turistici.", "col_eyebrow": "Proprietari", "col_title": "Hai un appartamento <em>a Roma?</em>", "col_text": "Se possiedi una camera o un appartamento, possiamo aiutarti a valorizzarlo attraverso affitti turistici. Il progetto Le Stanze è pensato per creare una rete di strutture accoglienti dedicate ai viaggiatori.", "bl1": "Maggiore visibilità online e promozione internazionale", "bl2": "Supporto completo nella gestione delle prenotazioni", "bl3": "Promozione sui principali canali turistici", "bl4": "Nessuna preoccupazione: pensiamo a tutto noi", "btn_contattaci": "Contattaci ora", "promo_title": "Trasforma una stanza in una fonte di reddito", "promo_text": "Se hai una stanza libera o un appartamento a Roma, possiamo aiutarti a trasformarlo in una struttura turistica all'interno del nostro network.", "btn_apri": "Apri una Stanza con noi", "chi_eyebrow": "La nostra storia", "chi_title": "Chi <em>siamo</em>", "chi_text": "Le Stanze nasce dall'idea di creare un progetto di ospitalità semplice e accessibile. Il nostro obiettivo è costruire una rete di strutture accoglienti dedicate ai viaggiatori, in Italia e nel mondo.", "tl1_title": "Le origini · Sharm el Sheikh", "tl1_text": "Il progetto nasce a Sharm el Sheikh, sul Mar Rosso. Un'idea semplice: ospitalità autentica, senza fronzoli.", "tl2_title": "L'espansione · Roma", "tl2_text": "Il progetto si sviluppa in Italia. Le Stanze di Roma porta lo stesso spirito nella capitale, con strutture selezionate nella città eterna.", "tl3_title": "Il futuro · Una rete in crescita", "tl3_text": "L'obiettivo è costruire una rete sempre più grande di stanze accoglienti, in nuove città e destinazioni.", "serv_eyebrow": "Cosa offriamo", "serv_title": "I nostri <em>servizi</em>", "serv_text": "Oltre all'ospitalità, offriamo servizi pensati per rendere il tuo soggiorno a Roma un'esperienza completa.", "sv1_title": "Taxi & Transfer", "sv1_text": "Servizio di trasporto privato per aeroporto, stazione e spostamenti in città.", "sv2_title": "Gite Turistiche", "sv2_text": "Tour guidati ed esperienze nella città eterna, personalizzati per i nostri ospiti.", "sv3_title": "Accordi Ristoranti", "sv3_text": "Convenzioni con ristoranti selezionati per offrirti il meglio della cucina romana.", "sv4_title": "Gestione Prenotazioni", "sv4_text": "Per i proprietari: gestiamo prenotazioni, comunicazioni e check-in al posto tuo.", "apri_eyebrow": "Proprietari di immobili", "apri_title": "Apri una Stanza <em>con noi</em>", "apri_text": "Se hai una stanza libera o un appartamento a Roma, possiamo aiutarti a trasformarlo in una struttura turistica. Entra nella rete Le Stanze e inizia a guadagnare.", "btn_inizia": "Inizia ora", "st1_title": "Contattaci", "st1_text": "Scrivici o chiamaci per raccontarci il tuo immobile. Valutiamo insieme l'opportunità.", "st2_title": "Valutiamo insieme", "st2_text": "Ti proponiamo le condizioni di collaborazione e il potenziale di guadagno della tua struttura.", "st3_title": "Partiamo", "st3_text": "Ci occupiamo di tutto: pubblicazione, prenotazioni, ospiti. Tu incassi.", "cont_eyebrow": "Parliamo", "cont_title": "Scrivici o <em>chiamaci</em>", "cont_text": "Per prenotazioni, informazioni o collaborazioni, contattaci direttamente. Siamo disponibili su tutti i canali.", "cont_form_eyebrow": "Modulo di contatto", "cont_form_title": "Inviaci un messaggio", "fl_nome": "Nome e Cognome", "fl_nome_ph": "Mario Rossi", "fl_tel": "Telefono / WhatsApp", "fl_tel_ph": "+39 ...", "fl_ogg": "Oggetto", "fl_ogg_ph": "Prenotazione / Collaborazione / Info", "fl_msg": "Messaggio", "fl_msg_ph": "Scrivi qui il tuo messaggio...", "btn_invia": "Invia messaggio →", "form_note": "Il tasto aprirà il tuo client email con il messaggio già compilato.", "footer_copy": "© 2025 Le Stanze di Roma · Vivi Roma, come a casa · Tutti i diritti riservati", "def_room_name": "La Stanza di Francesca", "def_room_desc": "Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.", "def_room_tag": "Roma · Disponibile"}, "en": {"lang_btn": "IT", "nav_stanze": "The Rooms", "nav_sharm": "Sharm", "nav_investi": "Invest", "nav_collabora": "Partner", "nav_chi": "About us", "nav_servizi": "Services", "nav_contatti": "Contact", "drawer_stanze": "Le Stanze di Roma", "drawer_sharm": "Le Stanze di Sharm", "drawer_investi": "Invest in Sharm", "drawer_collabora": "Partner with us", "drawer_chi": "About us", "drawer_servizi": "Services", "drawer_contatti": "Contact", "drawer_apri": "Open a Room", "drawer_slogan": "Le Stanze di Roma · Live Rome, like home.", "hero_eyebrow": "The Le Stanze Project · Rome", "hero_title": "Rooms and apartments<br>in the <em>heart</em> of Rome", "hero_sub": "Stay in the curated properties of the Le Stanze project.<br>Authentic hospitality for those who want to truly experience the city.", "btn_stanze": "Discover the Rooms", "btn_collabora": "Partner with us", "welcome_eyebrow": "Welcome", "welcome_title": "A project of <em>authentic</em> hospitality", "welcome_text": "Le Stanze di Roma is a project dedicated to travellers who want to experience the city authentically. We offer selected rooms and apartments in strategic locations, ideal for tourism, work or short stays.", "f1_title": "Comfort & convenience", "f1_text": "Every property is designed to offer a simple and pleasant experience.", "f2_title": "Strategic locations", "f2_text": "Well-connected properties, steps away from Rome's main attractions.", "f3_title": "Growing network", "f3_text": "An expanding project, from Sharm el-Sheikh to the heart of Rome.", "quote": "\"Every room is named after people dear to us that we love.\"", "card_sub": "Le Stanze di Roma — Selected Hospitality", "card_badge": "Book now", "stanze_eyebrow": "Our properties", "stanze_title": "Le Stanze <em>di Roma</em>", "btn_disponibilita": "Check availability", "overlay_scopri": "Discover the room", "gallery_cta": "Request information →", "sharm_cta_eyebrow": "Discover also", "sharm_cta_title": "Le Stanze <em style=\"color:var(--gold)\">di Sharm</em>", "sharm_cta_text": "The project was born in Sharm el-Sheikh, one of the most beloved destinations on the Red Sea. Rooms and apartments in selected resorts and residences to enjoy the sea all year round.", "btn_scopri_sharm": "Discover Le Stanze di Sharm →", "sf1": "Selected resorts and residences on the Red Sea", "sf2": "Ideal for holidays, long stays and remote working", "sf3": "Properties close to beaches and main services", "sf4": "Real estate investment opportunities", "btn_investi_sharm": "Invest in Sharm →", "lsr_eyebrow": "Our properties", "lsr_title": "Why choose <em>Le Stanze</em>", "lsr_text": "Le Stanze di Roma offers rooms and apartments in well-connected areas of the city. Every property is selected for comfort, tranquillity and easy access to the main attractions.", "id1_title": "Tourists", "id1_text": "Stay in the heart of Rome, close to monuments and the culture of the capital.", "id2_title": "Business travellers", "id2_text": "Comfortable properties for those in the city for work, with everything you need.", "id3_title": "Short stays", "id3_text": "Flexibility and comfort for stays of any length, worry-free.", "id4_title": "Remote working", "id4_text": "Quiet, well-connected spaces, ideal for working remotely in full Roman style.", "sharm_eyebrow": "Red Sea · Egypt", "sharm_title": "Le Stanze <em>di Sharm</em>", "sharm_text": "Le Stanze di Sharm was born in the heart of the Red Sea, in Sharm el-Sheikh. We offer rooms and apartments in selected resorts and residences, ideal for enjoying the sea, sun and relaxation.", "btn_investi2": "Invest in Sharm", "btn_info": "Information", "sharm_pf": "Perfect for", "sl1": "Beach holidays all year round", "sl2": "Long stays and temporary residence", "sl3": "Remote working with Red Sea views", "sl4": "Tourist real estate investment", "inv_eyebrow": "Opportunity", "inv_title": "Investing in <em>Sharm el-Sheikh</em>", "inv_text": "Sharm el-Sheikh is today one of the most interesting real estate opportunities in international tourism. Apartment prices are still accessible and tourism is constantly growing.", "btn_parla": "Visit lestanzedisharm.com →", "ic1_title": "Accessible prices", "ic1_text": "The Sharm real estate market offers competitive prices compared to other international tourist destinations.", "ic2_title": "Growing tourism", "ic2_text": "Sharm el-Sheikh records constantly increasing tourist flows, with high demand for short rentals and residences.", "ic3_title": "Management by us", "ic3_text": "Through Le Stanze we support you in finding and fully managing tourist rentals.", "col_eyebrow": "Property owners", "col_title": "Do you have an apartment <em>in Rome?</em>", "col_text": "If you own a room or apartment, we can help you make the most of it through tourist rentals. The Le Stanze project aims to create a network of welcoming properties for travellers.", "bl1": "Greater online visibility and international promotion", "bl2": "Full support in managing bookings", "bl3": "Promotion on major tourist channels", "bl4": "No worries — we handle everything", "btn_contattaci": "Contact us now", "promo_title": "Turn a room into a source of income", "promo_text": "If you have a spare room or apartment in Rome, we can help you turn it into a tourist property within our network.", "btn_apri": "Open a Room with us", "chi_eyebrow": "Our story", "chi_title": "About <em>us</em>", "chi_text": "Le Stanze was born from the idea of creating a simple and accessible hospitality project. Our goal is to build a growing network of welcoming properties for travellers, in Italy and around the world.", "tl1_title": "Origins · Sharm el-Sheikh", "tl1_text": "The project was born in Sharm el-Sheikh, on the Red Sea. A simple idea: authentic hospitality, no frills.", "tl2_title": "Expansion · Rome", "tl2_text": "The project expands to Italy. Le Stanze di Roma brings the same spirit to the capital, with selected properties in the eternal city.", "tl3_title": "Future · A growing network", "tl3_text": "The goal is to build an ever-larger network of welcoming rooms in new cities and destinations.", "serv_eyebrow": "What we offer", "serv_title": "Our <em>services</em>", "serv_text": "Beyond hospitality, we offer services designed to make your stay in Rome a complete experience.", "sv1_title": "Taxi & Transfer", "sv1_text": "Private transport to the airport, station and city destinations.", "sv2_title": "Tourist Tours", "sv2_text": "Guided tours and experiences in the eternal city, tailored for our guests.", "sv3_title": "Restaurant Deals", "sv3_text": "Agreements with selected restaurants to offer you the best of Roman cuisine.", "sv4_title": "Booking Management", "sv4_text": "For owners: we manage bookings, communications and check-in on your behalf.", "apri_eyebrow": "Property owners", "apri_title": "Open a Room <em>with us</em>", "apri_text": "If you have a spare room or apartment in Rome, we can help you turn it into a tourist property. Join the Le Stanze network and start earning.", "btn_inizia": "Start now", "st1_title": "Contact us", "st1_text": "Write or call us to tell us about your property. We will assess the opportunity together.", "st2_title": "We assess together", "st2_text": "We propose collaboration terms and the earning potential of your property.", "st3_title": "We start", "st3_text": "We handle everything: listing, bookings, guests. You earn.", "cont_eyebrow": "Let's talk", "cont_title": "Write or <em>call us</em>", "cont_text": "For bookings, information or partnerships, contact us directly. We are available on all channels.", "cont_form_eyebrow": "Contact form", "cont_form_title": "Send us a message", "fl_nome": "Full name", "fl_nome_ph": "John Smith", "fl_tel": "Phone / WhatsApp", "fl_tel_ph": "+39 ...", "fl_ogg": "Subject", "fl_ogg_ph": "Booking / Partnership / Info", "fl_msg": "Message", "fl_msg_ph": "Write your message here...", "btn_invia": "Send message →", "form_note": "This button will open your email client with the message pre-filled.", "footer_copy": "© 2025 Le Stanze di Roma · Live Rome, like home · All rights reserved", "def_room_name": "La Stanza di Francesca", "def_room_desc": "Elegant and bright room in the heart of Rome. A stay carefully curated in every detail, with living room, equipped kitchen, private bathroom and balcony.", "def_room_tag": "Rome · Available"}};
+const TRANSLATIONS = {"it": {"lang_btn": "EN", "nav_stanze": "Le Stanze", "nav_sharm": "Sharm", "nav_investi": "Investi", "nav_collabora": "Collabora", "nav_chi": "Chi siamo", "nav_servizi": "Servizi", "nav_contatti": "Contatti", "drawer_stanze": "Le Stanze di Roma", "drawer_sharm": "Le Stanze di Sharm", "drawer_investi": "Investi a Sharm", "drawer_collabora": "Collabora con noi", "drawer_chi": "Chi siamo", "drawer_servizi": "Servizi", "drawer_contatti": "Contatti", "drawer_apri": "Apri una Stanza", "drawer_slogan": "Le Stanze di Roma · Vivi Roma, come a casa.", "hero_eyebrow": "Il Progetto Le Stanze di Roma", "hero_title": "Camere e appartamenti<br>nel <em>cuore</em> di Roma", "hero_sub": "Soggiorna nelle strutture selezionate del progetto Le Stanze.<br>Un'ospitalità autentica, pensata per chi vuole vivere la città davvero.", "btn_stanze": "Scopri le Stanze", "btn_collabora": "Collabora con noi", "welcome_eyebrow": "Benvenuto", "welcome_title": "Un progetto di ospitalità <em>autentica</em>", "welcome_text": "Le Stanze di Roma è un progetto dedicato ai viaggiatori che vogliono vivere la città in modo autentico. Offriamo camere e appartamenti selezionati in zone strategiche della capitale, ideali per turismo, lavoro o soggiorni brevi.", "f1_title": "Comfort e praticità", "f1_text": "Ogni struttura è pensata per offrire un'esperienza semplice e piacevole.", "f2_title": "Zone strategiche", "f2_text": "Strutture ben collegate, a due passi dalle principali attrazioni della capitale.", "f3_title": "Rete in crescita", "f3_text": "Un format in espansione, da Sharm el Sheikh fino al cuore di Roma.", "quote": "\"Ogni stanza prende il nome di persone a noi care che amiamo.\"", "card_sub": "Le Stanze di Roma — Ospitalità Selezionata", "card_badge": "Prenota ora", "stanze_eyebrow": "Le nostre strutture", "stanze_title": "Le Stanze <em>di Roma</em>", "btn_disponibilita": "Richiedi disponibilità", "overlay_scopri": "Scopri la stanza", "gallery_cta": "Richiedi informazioni →", "sharm_cta_eyebrow": "Scopri anche", "sharm_cta_title": "Le Stanze <em style=\"color:var(--gold)\">di Sharm</em>", "sharm_cta_text": "Il progetto nasce a Sharm el Sheikh, una delle mete turistiche più amate del Mar Rosso. Camere e appartamenti all'interno di resort e residence per vivere il mare tutto l'anno.", "btn_scopri_sharm": "Scopri Le Stanze di Sharm →", "sf1": "Resort e residence selezionati sul Mar Rosso", "sf2": "Ideale per vacanze, soggiorni lunghi e remote working", "sf3": "Strutture vicino alle spiagge e ai servizi principali", "sf4": "Opportunità di investimento immobiliare", "btn_investi_sharm": "Investi a Sharm →", "lsr_eyebrow": "Le nostre strutture", "lsr_title": "Perché scegliere <em>Le Stanze</em>", "lsr_text": "Le Stanze di Roma offre camere e appartamenti in zone ben collegate della città. Ogni struttura è selezionata per offrire comfort, tranquillità e facilità di accesso alle principali attrazioni.", "id1_title": "Turisti", "id1_text": "Soggiorna nel cuore di Roma, vicino ai monumenti e alla cultura della capitale.", "id2_title": "Lavoratori", "id2_text": "Strutture confortevoli per chi è in città per lavoro, con tutto il necessario.", "id3_title": "Soggiorni brevi", "id3_text": "Flessibilità e comfort per soggiorni di qualsiasi durata, senza pensieri.", "id4_title": "Smart Working", "id4_text": "Ambienti tranquilli e ben connessi, ideali per lavorare da remoto in pieno stile romano.", "sharm_eyebrow": "Mar Rosso · Egitto", "sharm_title": "Le Stanze <em>di Sharm</em>", "sharm_text": "Il progetto Le Stanze di Sharm nasce nel cuore del Mar Rosso, a Sharm el Sheikh. Offriamo camere e appartamenti all'interno di resort e residence selezionati, ideali per vivere il mare, il sole e il relax.", "btn_investi2": "Investi a Sharm", "btn_info": "Informazioni", "sharm_pf": "Perfetto per", "sl1": "Vacanze al mare tutto l'anno", "sl2": "Soggiorni lunghi e residenza temporanea", "sl3": "Lavoro da remoto con vista sul Mar Rosso", "sl4": "Investimento immobiliare turistico", "inv_eyebrow": "Opportunità", "inv_title": "Investire a <em>Sharm el Sheikh</em>", "inv_text": "Sharm el Sheikh rappresenta oggi una delle opportunità immobiliari più interessanti nel turismo internazionale. I prezzi degli appartamenti sono ancora accessibili e il turismo è in costante crescita.", "btn_parla": "Visita lestanzedisharm.com →", "ic1_title": "Prezzi accessibili", "ic1_text": "Il mercato immobiliare di Sharm offre prezzi ancora competitivi rispetto ad altre destinazioni turistiche internazionali.", "ic2_title": "Turismo in crescita", "ic2_text": "Sharm el Sheikh registra flussi turistici in costante aumento, con domanda elevata di affitti brevi e residenze.", "ic3_title": "Gestione affidata a noi", "ic3_text": "Attraverso il progetto Le Stanze ti supportiamo nella ricerca e nella gestione completa degli affitti turistici.", "col_eyebrow": "Proprietari", "col_title": "Hai un appartamento <em>a Roma?</em>", "col_text": "Se possiedi una camera o un appartamento, possiamo aiutarti a valorizzarlo attraverso affitti turistici. Il progetto Le Stanze è pensato per creare una rete di strutture accoglienti dedicate ai viaggiatori.", "bl1": "Maggiore visibilità online e promozione internazionale", "bl2": "Supporto completo nella gestione delle prenotazioni", "bl3": "Promozione sui principali canali turistici", "bl4": "Nessuna preoccupazione: pensiamo a tutto noi", "btn_contattaci": "Contattaci ora", "promo_title": "Trasforma una stanza in una fonte di reddito", "promo_text": "Se hai una stanza libera o un appartamento a Roma, possiamo aiutarti a trasformarlo in una struttura turistica all'interno del nostro network.", "btn_apri": "Apri una Stanza con noi", "chi_eyebrow": "La nostra storia", "chi_title": "Chi <em>siamo</em>", "chi_text": "Le Stanze nasce dall'idea di creare un progetto di ospitalità semplice e accessibile. Il nostro obiettivo è costruire una rete di strutture accoglienti dedicate ai viaggiatori, in Italia e nel mondo.", "tl1_title": "Le origini · Sharm el Sheikh", "tl1_text": "Il progetto nasce a Sharm el Sheikh, sul Mar Rosso. Un'idea semplice: ospitalità autentica, senza fronzoli.", "tl2_title": "L'espansione · Roma", "tl2_text": "Il progetto si sviluppa in Italia. Le Stanze di Roma porta lo stesso spirito nella capitale, con strutture selezionate nella città eterna.", "tl3_title": "Il futuro · Una rete in crescita", "tl3_text": "L'obiettivo è costruire una rete sempre più grande di stanze accoglienti, in nuove città e destinazioni.", "serv_eyebrow": "Cosa offriamo", "serv_title": "I nostri <em>servizi</em>", "serv_text": "Oltre all'ospitalità, offriamo servizi pensati per rendere il tuo soggiorno a Roma un'esperienza completa.", "sv1_title": "NCC & Transfer", "sv1_text": "Disponiamo di NCC che possono attendervi in aeroporto o riaccompagnarvi. Qualsiasi cosa chiediate, organizziamo il transfer su misura per voi.", "sv2_title": "Gite Turistiche", "sv2_text": "Tour guidati ed esperienze nella città eterna, personalizzati per i nostri ospiti.", "sv3_title": "Accordi Ristoranti", "sv3_text": "Convenzioni con ristoranti selezionati per offrirti il meglio della cucina romana.", "sv4_title": "Gestione Prenotazioni", "sv4_text": "Per i proprietari: gestiamo prenotazioni, comunicazioni e check-in al posto tuo.", "sv5_title": "Bicycle Roma", "sv5_text": "Esplora Roma in bici! Grazie alla nostra collaborazione con Bicycle Roma, i nostri ospiti possono noleggiare biciclette di qualità per scoprire la città eterna in modo autentico e sostenibile.", "apri_eyebrow": "Proprietari di immobili", "apri_title": "Apri una Stanza <em>con noi</em>", "apri_text": "Se hai una stanza libera o un appartamento a Roma, possiamo aiutarti a trasformarlo in una struttura turistica. Entra nella rete Le Stanze e inizia a guadagnare.", "btn_inizia": "Inizia ora", "st1_title": "Contattaci", "st1_text": "Scrivici o chiamaci per raccontarci il tuo immobile. Valutiamo insieme l'opportunità.", "st2_title": "Valutiamo insieme", "st2_text": "Ti proponiamo le condizioni di collaborazione e il potenziale di guadagno della tua struttura.", "st3_title": "Partiamo", "st3_text": "Ci occupiamo di tutto: pubblicazione, prenotazioni, ospiti. Tu incassi.", "cont_eyebrow": "Parliamo", "cont_title": "Scrivici o <em>chiamaci</em>", "cont_text": "Per prenotazioni, informazioni o collaborazioni, contattaci direttamente. Siamo disponibili su tutti i canali.", "cont_form_eyebrow": "Modulo di contatto", "cont_form_title": "Inviaci un messaggio", "fl_nome": "Nome e Cognome", "fl_nome_ph": "Mario Rossi", "fl_tel": "Telefono / WhatsApp", "fl_tel_ph": "+39 ...", "fl_ogg": "Oggetto", "fl_ogg_ph": "Prenotazione / Collaborazione / Info", "fl_msg": "Messaggio", "fl_msg_ph": "Scrivi qui il tuo messaggio...", "btn_invia": "Invia messaggio →", "form_note": "Il tasto aprirà il tuo client email con il messaggio già compilato.", "footer_copy": "© 2025 Le Stanze di Roma · Vivi Roma, come a casa · Tutti i diritti riservati", "def_room_name": "La Stanza di Francesca", "def_room_desc": "Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.", "def_room_tag": "Roma · Disponibile"}, "en": {"lang_btn": "IT", "nav_stanze": "The Rooms", "nav_sharm": "Sharm", "nav_investi": "Invest", "nav_collabora": "Partner", "nav_chi": "About us", "nav_servizi": "Services", "nav_contatti": "Contact", "drawer_stanze": "Le Stanze di Roma", "drawer_sharm": "Le Stanze di Sharm", "drawer_investi": "Invest in Sharm", "drawer_collabora": "Partner with us", "drawer_chi": "About us", "drawer_servizi": "Services", "drawer_contatti": "Contact", "drawer_apri": "Open a Room", "drawer_slogan": "Le Stanze di Roma · Live Rome, like home.", "hero_eyebrow": "The Le Stanze di Roma Project", "hero_title": "Rooms and apartments<br>in the <em>heart</em> of Rome", "hero_sub": "Stay in the curated properties of the Le Stanze project.<br>Authentic hospitality for those who want to truly experience the city.", "btn_stanze": "Discover the Rooms", "btn_collabora": "Partner with us", "welcome_eyebrow": "Welcome", "welcome_title": "A project of <em>authentic</em> hospitality", "welcome_text": "Le Stanze di Roma is a project dedicated to travellers who want to experience the city authentically. We offer selected rooms and apartments in strategic locations, ideal for tourism, work or short stays.", "f1_title": "Comfort & convenience", "f1_text": "Every property is designed to offer a simple and pleasant experience.", "f2_title": "Strategic locations", "f2_text": "Well-connected properties, steps away from Rome's main attractions.", "f3_title": "Growing network", "f3_text": "An expanding project, from Sharm el-Sheikh to the heart of Rome.", "quote": "\"Every room is named after people dear to us that we love.\"", "card_sub": "Le Stanze di Roma — Selected Hospitality", "card_badge": "Book now", "stanze_eyebrow": "Our properties", "stanze_title": "Le Stanze <em>di Roma</em>", "btn_disponibilita": "Check availability", "overlay_scopri": "Discover the room", "gallery_cta": "Request information →", "sharm_cta_eyebrow": "Discover also", "sharm_cta_title": "Le Stanze <em style=\"color:var(--gold)\">di Sharm</em>", "sharm_cta_text": "The project was born in Sharm el-Sheikh, one of the most beloved destinations on the Red Sea. Rooms and apartments in selected resorts and residences to enjoy the sea all year round.", "btn_scopri_sharm": "Discover Le Stanze di Sharm →", "sf1": "Selected resorts and residences on the Red Sea", "sf2": "Ideal for holidays, long stays and remote working", "sf3": "Properties close to beaches and main services", "sf4": "Real estate investment opportunities", "btn_investi_sharm": "Invest in Sharm →", "lsr_eyebrow": "Our properties", "lsr_title": "Why choose <em>Le Stanze</em>", "lsr_text": "Le Stanze di Roma offers rooms and apartments in well-connected areas of the city. Every property is selected for comfort, tranquillity and easy access to the main attractions.", "id1_title": "Tourists", "id1_text": "Stay in the heart of Rome, close to monuments and the culture of the capital.", "id2_title": "Business travellers", "id2_text": "Comfortable properties for those in the city for work, with everything you need.", "id3_title": "Short stays", "id3_text": "Flexibility and comfort for stays of any length, worry-free.", "id4_title": "Remote working", "id4_text": "Quiet, well-connected spaces, ideal for working remotely in full Roman style.", "sharm_eyebrow": "Red Sea · Egypt", "sharm_title": "Le Stanze <em>di Sharm</em>", "sharm_text": "Le Stanze di Sharm was born in the heart of the Red Sea, in Sharm el-Sheikh. We offer rooms and apartments in selected resorts and residences, ideal for enjoying the sea, sun and relaxation.", "btn_investi2": "Invest in Sharm", "btn_info": "Information", "sharm_pf": "Perfect for", "sl1": "Beach holidays all year round", "sl2": "Long stays and temporary residence", "sl3": "Remote working with Red Sea views", "sl4": "Tourist real estate investment", "inv_eyebrow": "Opportunity", "inv_title": "Investing in <em>Sharm el-Sheikh</em>", "inv_text": "Sharm el-Sheikh is today one of the most interesting real estate opportunities in international tourism. Apartment prices are still accessible and tourism is constantly growing.", "btn_parla": "Visit lestanzedisharm.com →", "ic1_title": "Accessible prices", "ic1_text": "The Sharm real estate market offers competitive prices compared to other international tourist destinations.", "ic2_title": "Growing tourism", "ic2_text": "Sharm el-Sheikh records constantly increasing tourist flows, with high demand for short rentals and residences.", "ic3_title": "Management by us", "ic3_text": "Through Le Stanze we support you in finding and fully managing tourist rentals.", "col_eyebrow": "Property owners", "col_title": "Do you have an apartment <em>in Rome?</em>", "col_text": "If you own a room or apartment, we can help you make the most of it through tourist rentals. The Le Stanze project aims to create a network of welcoming properties for travellers.", "bl1": "Greater online visibility and international promotion", "bl2": "Full support in managing bookings", "bl3": "Promotion on major tourist channels", "bl4": "No worries — we handle everything", "btn_contattaci": "Contact us now", "promo_title": "Turn a room into a source of income", "promo_text": "If you have a spare room or apartment in Rome, we can help you turn it into a tourist property within our network.", "btn_apri": "Open a Room with us", "chi_eyebrow": "Our story", "chi_title": "About <em>us</em>", "chi_text": "Le Stanze was born from the idea of creating a simple and accessible hospitality project. Our goal is to build a growing network of welcoming properties for travellers, in Italy and around the world.", "tl1_title": "Origins · Sharm el-Sheikh", "tl1_text": "The project was born in Sharm el-Sheikh, on the Red Sea. A simple idea: authentic hospitality, no frills.", "tl2_title": "Expansion · Rome", "tl2_text": "The project expands to Italy. Le Stanze di Roma brings the same spirit to the capital, with selected properties in the eternal city.", "tl3_title": "Future · A growing network", "tl3_text": "The goal is to build an ever-larger network of welcoming rooms in new cities and destinations.", "serv_eyebrow": "What we offer", "serv_title": "Our <em>services</em>", "serv_text": "Beyond hospitality, we offer services designed to make your stay in Rome a complete experience.", "sv1_title": "NCC & Transfer", "sv1_text": "We have private NCC drivers ready to meet you at the airport or take you back. Whatever you need, we'll organise a tailor-made transfer.", "sv2_title": "Tourist Tours", "sv2_text": "Guided tours and experiences in the eternal city, tailored for our guests.", "sv3_title": "Restaurant Deals", "sv3_text": "Agreements with selected restaurants to offer you the best of Roman cuisine.", "sv4_title": "Booking Management", "sv4_text": "For owners: we manage bookings, communications and check-in on your behalf.", "sv5_title": "Bicycle Roma", "sv5_text": "Explore Rome by bike! Thanks to our partnership with Bicycle Roma, our guests can rent quality bicycles to discover the eternal city in an authentic and sustainable way.", "apri_eyebrow": "Property owners", "apri_title": "Open a Room <em>with us</em>", "apri_text": "If you have a spare room or apartment in Rome, we can help you turn it into a tourist property. Join the Le Stanze network and start earning.", "btn_inizia": "Start now", "st1_title": "Contact us", "st1_text": "Write or call us to tell us about your property. We will assess the opportunity together.", "st2_title": "We assess together", "st2_text": "We propose collaboration terms and the earning potential of your property.", "st3_title": "We start", "st3_text": "We handle everything: listing, bookings, guests. You earn.", "cont_eyebrow": "Let's talk", "cont_title": "Write or <em>call us</em>", "cont_text": "For bookings, information or partnerships, contact us directly. We are available on all channels.", "cont_form_eyebrow": "Contact form", "cont_form_title": "Send us a message", "fl_nome": "Full name", "fl_nome_ph": "John Smith", "fl_tel": "Phone / WhatsApp", "fl_tel_ph": "+39 ...", "fl_ogg": "Subject", "fl_ogg_ph": "Booking / Partnership / Info", "fl_msg": "Message", "fl_msg_ph": "Write your message here...", "btn_invia": "Send message →", "form_note": "This button will open your email client with the message pre-filled.", "footer_copy": "© 2025 Le Stanze di Roma · Live Rome, like home · All rights reserved", "def_room_name": "La Stanza di Francesca", "def_room_desc": "Elegant and bright room in the heart of Rome. A stay carefully curated in every detail, with living room, equipped kitchen, private bathroom and balcony.", "def_room_tag": "Rome · Available"}};
 let currentLang = localStorage.getItem("lsr_lang") || "it";
 
 function applyLang(lang) {
@@ -762,6 +943,16 @@ function openGallery(id){
   document.getElementById("galleryTag").textContent=gl==="en"&&r.tag_en?r.tag_en:r.tag;
   document.getElementById("galleryDesc").textContent=gl==="en"&&r.desc_en?r.desc_en:r.desc;
   document.getElementById("galleryPlaceholderLetter").textContent=r.name.split(" ").pop()[0];
+  // Mappa posizione
+  const mapBtn=document.getElementById("galleryMapBtn");
+  mapBtn.innerHTML=r.map_link?`<a href="${r.map_link}" target="_blank" rel="noopener" class="gallery-map-btn">📍 Vedi la posizione su Google Maps</a>`:"";
+  // Parcheggio
+  const parkEl=document.getElementById("galleryParking");
+  if(r.parking){
+    const linkHtml=r.parking_link?` &nbsp;<a href="${r.parking_link}" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">→ Vedi su mappa</a>`:"";
+    parkEl.innerHTML=`🅿️ <strong>Parcheggio:</strong> ${r.parking}${linkHtml}`;
+    parkEl.style.display="block";
+  } else {parkEl.style.display="none";}
   buildSlides();
   document.getElementById("galleryModal").classList.add("open");
   document.body.style.overflow="hidden";
@@ -856,14 +1047,20 @@ function addRoom(){
   const name=document.getElementById("aName").value.trim();
   const desc=document.getElementById("aDesc").value.trim();
   const tag=document.getElementById("aTag").value.trim();
+  const map_link=document.getElementById("aMapLink").value.trim();
+  const parking=document.getElementById("aParking").value.trim();
+  const parking_link=document.getElementById("aParkingLink").value.trim();
   if(!name){alert("Inserisci il nome della stanza.");return;}
-  const newRoom = {id:Date.now(),name,name_en:"",desc,desc_en:"",tag:tag||"Roma",tag_en:"",photos:[...pendingPhotos]};
+  const newRoom = {id:Date.now(),name,name_en:"",desc,desc_en:"",tag:tag||"Roma",tag_en:"",photos:[...pendingPhotos],map_link,parking,parking_link};
   const rooms=getRooms();
   rooms.push(newRoom);
   saveRooms(rooms);renderRooms();renderAdminList();
   document.getElementById("aName").value="";
   document.getElementById("aDesc").value="";
   document.getElementById("aTag").value="";
+  document.getElementById("aMapLink").value="";
+  document.getElementById("aParking").value="";
+  document.getElementById("aParkingLink").value="";
   pendingPhotos=[];renderPending();
   autoTranslateRoom(newRoom.id, name, desc, tag||"Roma", "add");
 }
@@ -881,7 +1078,7 @@ function renderAdminList(){
   list.innerHTML=rooms.map(r=>`
     <div class="admin-room-item">
       <div class="admin-room-header">
-        <div><span style="font-weight:500;color:var(--dark);font-size:.88rem">${r.name}</span><br><small style="color:var(--brown);font-size:.75rem">${r.tag} · ${(r.photos||[]).length} foto</small></div>
+        <div><span style="font-weight:500;color:var(--dark);font-size:.88rem">${r.name}</span><br><small style="color:var(--brown);font-size:.75rem">${r.tag} · ${(r.photos||[]).length} foto${r.map_link?' · 📍 mappa':''}</small></div>
         <div class="admin-room-actions">
           <button class="admin-edit-btn" onclick="toggleEditRoom(${r.id})">✎ Modifica</button>
           <button class="admin-del-btn" onclick="deleteRoom(${r.id})">Elimina</button>
@@ -894,8 +1091,14 @@ function renderAdminList(){
           <div><label class="admin-label">Tag / Zona</label><input type="text" class="admin-field" id="edit-tag-${r.id}" value="${r.tag.replace(/"/g,'&quot;')}"></div>
           <div class="edit-full"><label class="admin-label">Descrizione</label><textarea class="admin-field" id="edit-desc-${r.id}" rows="2" style="resize:vertical">${r.desc}</textarea></div>
         </div>
-        <button class="save-info-btn" onclick="saveRoomInfo(${r.id})">💾 Salva testi</button>
-        <p class="edit-subsection">🖼️ Foto</p>
+        <p class="edit-subsection">📍 Posizione & Parcheggio</p>
+        <div class="edit-grid">
+          <div class="edit-full"><label class="admin-label">Link Google Maps (posizione appartamento)</label><input type="url" class="admin-field" id="edit-map-${r.id}" value="${(r.map_link||'').replace(/"/g,'&quot;')}" placeholder="https://maps.app.goo.gl/..."></div>
+          <div class="edit-full"><label class="admin-label">🅿️ Parcheggio / Garage (descrizione)</label><textarea class="admin-field" id="edit-parking-${r.id}" rows="1" style="resize:vertical" placeholder="Es. Garage Prati, Via Candia 10">${r.parking||''}</textarea></div>
+          <div class="edit-full"><label class="admin-label">🗺️ Link Google Maps Parcheggio</label><input type="url" class="admin-field" id="edit-parking-link-${r.id}" value="${(r.parking_link||'').replace(/"/g,'&quot;')}" placeholder="https://maps.app.goo.gl/..."></div>
+        </div>
+        <button class="save-info-btn" onclick="saveRoomInfo(${r.id})">💾 Salva info</button>
+        <p class="edit-subsection">🖼️ Foto — ⭐ = copertina</p>
         <div class="photos-list" id="edit-photos-${r.id}"></div>
         <div class="photo-row" style="margin-top:.6rem">
           <input type="url" class="admin-field" id="edit-url-${r.id}" placeholder="https://...">
@@ -912,6 +1115,9 @@ function saveRoomInfo(id){
   r.name=document.getElementById("edit-name-"+id).value.trim()||r.name;
   r.tag=document.getElementById("edit-tag-"+id).value.trim()||r.tag;
   r.desc=document.getElementById("edit-desc-"+id).value.trim();
+  r.map_link=document.getElementById("edit-map-"+id).value.trim();
+  r.parking=document.getElementById("edit-parking-"+id).value.trim();
+  r.parking_link=document.getElementById("edit-parking-link-"+id).value.trim();
   // Reset EN so they get retranslated
   r.name_en=""; r.tag_en=""; r.desc_en="";
   saveRooms(rooms);renderRooms();renderAdminList();
@@ -922,7 +1128,19 @@ function renderEditPhotos(roomId){
   const rooms=getRooms();const r=rooms.find(x=>x.id===roomId);if(!r)return;
   const el=document.getElementById("edit-photos-"+roomId);if(!el)return;
   if(!r.photos||!r.photos.length){el.innerHTML="<p style='font-size:.75rem;color:var(--brown)'>Nessuna foto.</p>";return;}
-  el.innerHTML=r.photos.map((url,i)=>`<div class="photo-item"><img class="photo-thumb" src="${url}" onerror="this.style.opacity='.3'"><span class="photo-url">${url.startsWith("data:")?"[file caricato]":url}</span><button class="photo-del" onclick="removeEditPhoto(${roomId},${i})">✕</button></div>`).join("");
+  el.innerHTML=r.photos.map((url,i)=>`<div class="photo-item">
+    <button class="photo-cover-btn" onclick="setCoverPhoto(${roomId},${i})" title="${i===0?'Foto copertina':'Imposta come copertina'}">${i===0?'⭐':'☆'}</button>
+    <img class="photo-thumb" src="${url}" onerror="this.style.opacity='.3'">
+    <span class="photo-url">${url.startsWith("data:")?"[file caricato]":url}</span>
+    <button class="photo-del" onclick="removeEditPhoto(${roomId},${i})">✕</button>
+  </div>`).join("");
+}
+function setCoverPhoto(roomId,idx){
+  if(idx===0)return;
+  const rooms=getRooms();const r=rooms.find(x=>x.id===roomId);if(!r||!r.photos)return;
+  const cover=r.photos.splice(idx,1)[0];
+  r.photos.unshift(cover);
+  saveRooms(rooms);renderRooms();renderEditPhotos(roomId);
 }
 function removeEditPhoto(roomId,idx){
   const rooms=getRooms();const r=rooms.find(x=>x.id===roomId);if(!r)return;
@@ -1029,9 +1247,18 @@ function exportSite() {
   const slim = rooms.map(r => {
     let exportPhotos;
     if(r.id === 1) {
-      // Default Francesca room: sentinel for first photo, keep extra URL photos
-      const extras = (r.photos||[]).slice(1).filter(p => p && !p.startsWith("data:"));
-      exportPhotos = ["__FP__", ...extras];
+      // Se la copertina è ancora quella originale → usa il sentinel __FP__
+      // Se l'utente l'ha cambiata → esporta le URL reali (nessun sentinel)
+      const fp0 = FRANCESCA_PHOTOS[0];
+      const photos = r.photos || [];
+      if(photos.length > 0 && photos[0] === fp0) {
+        // Cover originale: sentinel + extra URL
+        const extras = photos.slice(1).filter(p => p && !p.startsWith("data:"));
+        exportPhotos = ["__FP__", ...extras];
+      } else {
+        // Cover cambiata: esporta tutte le URL senza sentinel
+        exportPhotos = photos.filter(p => p && !p.startsWith("data:"));
+      }
     } else {
       // Other rooms: keep only URL photos (not base64 uploads)
       exportPhotos = (r.photos||[]).filter(p => p && !p.startsWith("data:"));
@@ -1041,7 +1268,10 @@ function exportSite() {
       name: r.name, name_en: r.name_en||"",
       desc: r.desc, desc_en: r.desc_en||"",
       tag: r.tag,  tag_en: r.tag_en||"",
-      photos: exportPhotos
+      photos: exportPhotos,
+      map_link: r.map_link||"",
+      parking: r.parking||"",
+      parking_link: r.parking_link||""
     };
   });
   const injection = "<script>window.__EXPORTED_ROOMS__="+JSON.stringify(slim)+";<\/script>";
@@ -1077,9 +1307,10 @@ function cookieChoice(accepted){
 // Load exported rooms if present
 if(window.__EXPORTED_ROOMS__) {
   const restored = window.__EXPORTED_ROOMS__.map(r => {
-    // Restore sentinel to full Francesca photos
+    // Ripristina il sentinel __FP__ solo se presente come prima foto
     if(r.id === 1 && r.photos && r.photos[0] === "__FP__")
       return Object.assign({}, r, {photos: [...FRANCESCA_PHOTOS, ...r.photos.slice(1)]});
+    // Altrimenti usa le foto così come sono (cover cambiata dall'utente)
     return r;
   });
   try{ localStorage.setItem("lsr_rooms_v3", JSON.stringify(restored)); }catch(e){}
