@@ -1,1 +1,753 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Le Stanze di Roma — Guest Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17100A;--bg-card:#2E1C0E;--bg-lift:#3C2614;--bg-high:#4A301A;
+  --amber:#C48A2A;--amber-dim:#8A5C18;
+  --gold:#D4AA50;--gold-lt:#E0C070;
+  --white:#FFFFFF;
+  --text-dim:rgba(255,255,255,.55);--text-soft:rgba(255,255,255,.32);
+  --line:rgba(255,255,255,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;font-family:'Jost',sans-serif;background:var(--bg);color:var(--white);max-width:430px;margin:0 auto;overflow:hidden}
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh}
 
+/* SCREENS */
+.screen{display:none;flex-direction:column;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.screen.active{display:flex;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+
+/* ══ LANDING ══ */
+#landing{background:var(--bg);padding:48px 22px 60px;overflow-y:auto}
+.landing-top{text-align:center;margin-bottom:32px}
+.landing-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.landing-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:400;line-height:1.05;margin-bottom:8px}
+.landing-title em{font-style:italic;color:var(--gold-lt)}
+.landing-sub{font-size:12px;color:var(--text-dim);letter-spacing:.8px}
+
+.apt-card{background:var(--bg-card);border:1px solid var(--line);border-radius:22px;padding:20px;margin-bottom:14px;position:relative;overflow:hidden}
+.apt-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(196,138,42,.13),transparent 55%);pointer-events:none}
+.apt-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;position:relative;z-index:1}
+.apt-card-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;line-height:1.1}
+.apt-card-name em{display:block;font-style:italic;color:var(--gold-lt);font-size:21px}
+.apt-badge{background:rgba(196,146,42,.2);border:1px solid rgba(196,146,42,.4);border-radius:100px;padding:5px 11px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);white-space:nowrap;flex-shrink:0;margin-top:3px}
+.apt-addr{font-size:12px;color:var(--text-dim);margin-bottom:16px;position:relative;z-index:1}
+.lang-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative;z-index:1}
+.lang-btn{display:flex;align-items:center;gap:8px;background:var(--bg-lift);border:1px solid var(--line);border-radius:12px;padding:11px 12px;cursor:pointer;width:100%;transition:background .18s,border-color .18s}
+.lang-btn:active{background:var(--bg-high);border-color:var(--amber)}
+.lang-flag{font-size:20px;flex-shrink:0}
+.lang-name{font-size:12px;font-weight:600;display:block;color:#FFFFFF}
+.lang-sub{font-size:10px;color:rgba(255,255,255,.55);display:block}
+.lang-arrow{margin-left:auto;color:rgba(255,255,255,.4);font-size:13px;flex-shrink:0}
+
+/* ══ GUIDE WRAPPER ══ */
+#guide{flex-direction:column;overflow:hidden;background:#F0EDE8}
+#guide.active{display:flex}
+/* Override bg for all guide inner screens */
+#guide .tab-content{background:#F0EDE8}
+#guide .page-header{background:#F0EDE8}
+#guide .page-header .ph-title{color:#1C1810}
+#guide .page-header .ph-eyebrow{color:var(--amber)}
+#guide .section-title{color:#1C1810}
+#guide .section-sub{color:rgba(28,24,16,.55)}
+#guide .tab-body{background:#F0EDE8}
+/* Home hero stays dark gradient - no change needed */
+.bottom-nav{background:var(--bg-card);border-top:1px solid var(--line);display:flex;flex-shrink:0;padding:8px 0 20px}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:4px 2px}
+.nav-btn .n-ico{font-size:21px;transition:transform .2s}
+.nav-btn .n-lbl{font-size:9px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--text-dim);transition:color .2s}
+.nav-btn.active .n-lbl{color:var(--amber)}
+.nav-btn.active .n-ico{transform:translateY(-2px)}
+
+.tab-content{display:none;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;flex-direction:column}
+.tab-content.active{display:flex;animation:fadeUp .22s ease}
+
+/* ── HOME ── */
+.home-hero{position:relative;overflow:hidden;padding:50px 22px 26px;background:linear-gradient(155deg,var(--bg) 0%,var(--amber-dim) 100%);flex-shrink:0}
+.home-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(196,138,42,.28),transparent 58%);pointer-events:none}
+.home-hero::after{content:'';position:absolute;bottom:-55px;right:-55px;width:210px;height:210px;border-radius:50%;border:1px solid rgba(196,138,42,.12);pointer-events:none}
+.hero-back{position:absolute;top:13px;left:13px;background:rgba(255,255,255,.08);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-dim);font-size:17px;z-index:2}
+.hero-superhost{position:absolute;top:13px;right:13px;background:rgba(196,146,42,.2);border:1px solid rgba(196,146,42,.4);border-radius:100px;padding:5px 11px;font-size:9px;letter-spacing:1px;color:var(--gold-lt);z-index:2;display:flex;align-items:center;gap:4px}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:5px 13px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;position:relative;z-index:1}
+.hero-title{font-family:'Playfair Display',serif;font-size:46px;font-weight:400;line-height:1;position:relative;z-index:1;margin-bottom:2px}
+.hero-title em{display:block;font-style:italic;color:var(--gold-lt)}
+.hero-addr{font-size:13px;color:var(--text-dim);margin-bottom:22px;position:relative;z-index:1}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(0,0,0,.28);border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;z-index:1}
+.hero-stat{padding:11px 6px;text-align:center;border-right:1px solid var(--line)}
+.hero-stat:last-child{border-right:none}
+.stat-ico{font-size:18px;margin-bottom:3px}
+.stat-lbl{font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:2px}
+.stat-val{font-size:12px;font-weight:600}
+
+.welcome-card{margin:14px 14px 0;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.welcome-wrap-outer{background:#F0EDE8;padding:0 0 4px}
+.wc-title{font-size:15px;font-weight:600;margin-bottom:7px}
+.wc-text{font-size:13px;line-height:1.72;color:var(--text-dim);margin-bottom:13px}
+.wc-author{display:inline-flex;align-items:center;gap:6px;background:rgba(196,146,42,.14);border:1px solid rgba(196,146,42,.28);border-radius:100px;padding:5px 13px;font-size:12px;color:var(--gold-lt);font-weight:500}
+
+/* Explore — VERTICAL list */
+.explore-section{padding:18px 14px 8px;background:#F0EDE8}
+.section-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:400;margin-bottom:3px}
+.section-sub{font-size:12px;color:var(--text-dim);margin-bottom:14px}
+.exp-list{display:flex;flex-direction:column;gap:9px}
+.exp-item{display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:14px;padding:14px 16px;cursor:pointer;transition:background .18s,border-color .18s}
+.exp-item:active{background:#F0EDE8;border-color:var(--amber)}
+.exp-ico{width:42px;height:42px;border-radius:12px;background:rgba(196,138,42,.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.exp-text{flex:1}
+.exp-label{font-size:14px;font-weight:500;display:block;line-height:1.2;color:#1C1810}
+.exp-sublabel{font-size:11px;color:rgba(28,24,16,.5);display:block;margin-top:2px}
+.exp-arrow{color:var(--amber);font-size:16px;flex-shrink:0}
+
+/* PAGE HEADER */
+.page-header{padding:28px 18px 18px;background:var(--bg);flex-shrink:0;position:relative;border-bottom:1px solid var(--line)}
+.page-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.ph-eyebrow{font-size:9px;letter-spacing:2.8px;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.ph-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:400}
+.tab-body{padding:14px 14px 50px}
+
+/* CARDS — white with dark text */
+.t-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);padding:16px;margin-bottom:10px}
+.t-card-label{font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:var(--amber);margin-bottom:11px;font-weight:500}
+.t-card p{font-size:13px;line-height:1.75;color:rgba(28,24,16,.65)}
+.t-card strong{color:#1C1810}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(28,24,16,.08)}
+.info-row:last-child{border-bottom:none;padding-bottom:0}
+.ir-label{font-size:12px;color:rgba(28,24,16,.5)}
+.ir-value{font-size:13px;font-weight:500;color:#1C1810}
+
+/* Maps button */
+.maps-big-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--amber);border:none;border-radius:14px;color:white;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;padding:14px;width:100%;cursor:pointer;text-decoration:none;transition:opacity .2s;letter-spacing:.5px;margin-top:4px}
+.maps-big-btn:active{opacity:.75}
+
+/* WiFi */
+.wifi-card{background:linear-gradient(135deg,var(--amber-dim),#0E0A04);border:1px solid rgba(196,138,42,.3);border-radius:var(--radius);padding:22px;margin-bottom:10px;text-align:center}
+.wifi-ico{font-size:34px;margin-bottom:10px}
+.wifi-net{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:3px}
+.wifi-name{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:12px}
+.wifi-tip{font-size:13px;color:rgba(255,255,255,.7);line-height:1.65}
+
+/* Rules */
+.rule-item{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid rgba(28,24,16,.08)}
+.rule-item:last-child{border-bottom:none;padding-bottom:0}
+.rule-n{font-family:'Playfair Display',serif;font-size:27px;color:var(--amber);line-height:1;flex-shrink:0;width:22px;text-align:right;margin-top:-2px}
+.rule-title{font-size:13px;font-weight:500;margin-bottom:3px;color:#1C1810}
+.rule-desc{font-size:13px;line-height:1.6;color:rgba(28,24,16,.6)}
+
+/* Spaces */
+.space-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);padding:16px;margin-bottom:10px}
+.sc-header{display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid rgba(28,24,16,.08)}
+.sc-ico{font-size:20px}
+.sc-name{font-family:'Playfair Display',serif;font-size:19px;color:#1C1810}
+.sc-desc{font-size:13px;line-height:1.68;color:rgba(28,24,16,.62);margin-bottom:9px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{background:rgba(196,138,42,.08);border:1px solid rgba(196,138,42,.22);border-radius:100px;padding:4px 10px;font-size:11px;color:#1C5A66}
+
+/* Places */
+.place-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);padding:15px;margin-bottom:10px;display:flex;gap:13px}
+.place-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:6px}
+.place-name{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:4px;color:#1C1810}
+.place-desc{font-size:13px;line-height:1.65;color:rgba(28,24,16,.6);margin-bottom:7px}
+.place-how{font-size:12px;line-height:1.6;color:rgba(28,24,16,.55);margin-bottom:8px;padding:9px 11px;background:rgba(196,138,42,.07);border-radius:9px;border-left:2px solid var(--amber)}
+.maps-btn{display:inline-flex;align-items:center;gap:5px;background:var(--amber);border:none;border-radius:100px;color:white;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;padding:7px 13px;cursor:pointer;text-decoration:none;transition:opacity .2s}
+.maps-btn:active{opacity:.75}
+
+/* Restaurants */
+.resto-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);overflow:hidden;margin-bottom:10px}
+.resto-top{height:65px;display:flex;align-items:center;justify-content:center;font-size:30px;position:relative}
+.resto-type-badge{position:absolute;bottom:7px;right:9px;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.resto-body{padding:13px 15px 15px}
+.resto-name{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:2px;color:#1C1810}
+.resto-type{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
+.resto-desc{font-size:13px;line-height:1.65;color:rgba(28,24,16,.6);margin-bottom:11px}
+.resto-footer{display:flex;align-items:center;justify-content:space-between}
+.guide-btn{display:inline-flex;align-items:center;gap:5px;background:var(--amber);border:none;border-radius:100px;color:white;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;padding:7px 13px;cursor:pointer;text-decoration:none;transition:opacity .2s}
+.guide-btn:active{opacity:.75}
+
+/* Move */
+.move-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);padding:15px;margin-bottom:10px;display:flex;gap:13px;align-items:flex-start}
+.move-ico{width:42px;height:42px;border-radius:13px;background:rgba(196,138,42,.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.move-title{font-size:13px;font-weight:600;margin-bottom:3px;color:#1C1810}
+.move-desc{font-size:13px;line-height:1.65;color:rgba(28,24,16,.6)}
+
+/* Contact bar — stays dark */
+.contact-bar{background:linear-gradient(135deg,var(--amber-dim),#17100A);border:1px solid rgba(196,138,42,.28);border-radius:var(--radius);padding:16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.contact-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85%,rgba(196,138,42,.18),transparent 55%);pointer-events:none}
+.cb-text{position:relative;z-index:1}
+.cb-lbl{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:2px}
+.cb-name{font-family:'Playfair Display',serif;font-size:17px;color:#FFFFFF}
+.cb-btn{position:relative;z-index:1;background:var(--gold);border:none;border-radius:100px;color:white;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px;cursor:pointer;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:5px;transition:opacity .2s}
+.cb-btn:active{opacity:.75}
+
+/* SOS */
+.sos-card{background:#FFFFFF;border:1px solid rgba(28,24,16,.1);border-radius:var(--radius);padding:13px 15px;margin-bottom:8px;display:flex;align-items:center;gap:13px}
+.sos-ico{width:42px;height:42px;border-radius:13px;border:1px solid rgba(28,24,16,.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.sos-name{font-size:13px;font-weight:500;margin-bottom:2px;color:#1C1810}
+.sos-desc{font-size:11px;color:rgba(28,24,16,.5)}
+.call-btn{display:flex;align-items:center;gap:4px;background:var(--bg-card);border:1px solid var(--line);border-radius:100px;color:white;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;padding:7px 11px;cursor:pointer;text-decoration:none;white-space:nowrap;margin-left:auto;transition:opacity .2s}
+.call-btn:active{opacity:.75}
+
+/* Steps */
+.step-item{display:flex;gap:15px;padding:14px 0;border-bottom:1px solid rgba(28,24,16,.08)}
+.step-item:last-child{border-bottom:none;padding-bottom:0}
+.step-n{font-family:'Playfair Display',serif;font-size:30px;color:var(--amber);line-height:1;flex-shrink:0;width:24px;text-align:right;margin-top:-4px}
+.step-title{font-size:13px;font-weight:500;margin-bottom:3px;color:#1C1810}
+.step-desc{font-size:13px;line-height:1.65;color:rgba(28,24,16,.6)}
+
+/* Services */
+.svc-row{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid rgba(28,24,16,.08)}
+.svc-row:last-child{border-bottom:none;padding-bottom:0}
+.svc-ico{font-size:18px;flex-shrink:0;margin-top:1px}
+.svc-title{font-size:13px;font-weight:500;margin-bottom:2px;color:#1C1810}
+.svc-desc{font-size:12px;color:rgba(28,24,16,.58);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ══ LANDING ══ -->
+<div id="landing" class="screen active">
+  <div class="landing-top">
+    <img src="https://ik.imagekit.io/2gkrpnbbol/logo.jpeg?updatedAt=1774808551223" alt="Logo" style="width:90px;height:90px;object-fit:contain;border-radius:20px;margin-bottom:14px;filter:drop-shadow(0 4px 18px rgba(196,138,42,.5))">
+    <div class="landing-eyebrow">Roma · Prati · Vaticano</div>
+    <div class="landing-title">Le Stanze<br><em>di Roma</em></div>
+    <div class="landing-sub">Seleziona la lingua della guida</div>
+  </div>
+
+  <div class="apt-card">
+    <div class="apt-card-header">
+      <div class="apt-card-name">Le Stanze<em>di Roma</em></div>
+      <div class="apt-badge">★ Massimiliano</div>
+    </div>
+    <div class="apt-addr">Via Ottaviano 25 · Roma 00192</div>
+    <div class="lang-row">
+      <button class="lang-btn" onclick="openGuide('it')">
+        <span class="lang-flag">🇮🇹</span>
+        <span><span class="lang-name">Italiano</span><span class="lang-sub">Guida Ospiti</span></span>
+        <span class="lang-arrow">›</span>
+      </button>
+      <button class="lang-btn" onclick="openGuide('en')">
+        <span class="lang-flag">🇬🇧</span>
+        <span><span class="lang-name">English</span><span class="lang-sub">Guest Guide</span></span>
+        <span class="lang-arrow">›</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GUIDE ══ -->
+<div id="guide" class="screen">
+
+  <!-- HOME -->
+  <div id="tab-home" class="tab-content active">
+    <div class="home-hero">
+      <button class="hero-back" onclick="backToLanding()">←</button>
+      <div class="hero-superhost">★ Host: Massimiliano</div>
+      <div class="hero-badge" id="h-badge">✦ PRATI · VATICANO · ROMA</div>
+      <div class="hero-title" id="h-title" style="color:#fff !important">Le Stanze<em>di Roma</em></div>
+      <div class="hero-addr" id="h-addr">Via Ottaviano 25 — Roma 00192</div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="stat-ico">🗝️</div><span class="stat-lbl" id="s-checkin-lbl">Check-in</span><div class="stat-val">15:00</div></div>
+        <div class="hero-stat"><div class="stat-ico">🚪</div><span class="stat-lbl" id="s-checkout-lbl">Check-out</span><div class="stat-val">11:00</div></div>
+        <div class="hero-stat"><div class="stat-ico">👥</div><span class="stat-lbl" id="s-guests-lbl">Ospiti</span><div class="stat-val">6</div></div>
+        <div class="hero-stat" style="cursor:pointer" onclick="window.open('https://maps.google.com/?q=Via+Ottaviano+25+Roma','_blank')"><div class="stat-ico">🧭</div><span class="stat-lbl" id="s-maps-lbl">Naviga</span><div class="stat-val">Maps</div></div>
+      </div>
+    </div>
+
+    <div style="background:#F0EDE8;padding:0 0 2px">
+    <div class="welcome-card">
+      <div class="wc-title" id="wc-title">Benvenuti! 👋</div>
+      <div class="wc-text" id="wc-text">Ciao, io sono Massimiliano il tuo host di fiducia! 🏛️<br><br>Sono felice di accoglierti nelle mie stanze nel cuore di Roma, a pochi passi dal Vaticano. Questa guida ti aiuterà a scoprire tutto quello che ti serve per un soggiorno perfetto.<br><br>Per qualsiasi esigenza non esitare a contattarmi — sono sempre disponibile!</div>
+      <div class="wc-author">★ &nbsp;Massimiliano</div>
+    </div>
+
+    </div><!-- /welcome wrap -->
+
+    <div class="explore-section">
+      <div class="section-title" id="exp-title">Esplora la guida</div>
+      <div class="section-sub" id="exp-sub">Tutto quello che ti serve in un tap</div>
+      <div class="exp-list">
+        <div class="exp-item" onclick="switchTab('soggiorno')">
+          <div class="exp-ico">🛋️</div>
+          <div class="exp-text">
+            <span class="exp-label" id="nav-soggiorno">Il tuo soggiorno</span>
+            <span class="exp-sublabel" id="nav-soggiorno-sub">Check-in, WiFi, regole e spazi</span>
+          </div>
+          <span class="exp-arrow">›</span>
+        </div>
+        <div class="exp-item" onclick="switchTab('luoghi')">
+          <div class="exp-ico">🗺️</div>
+          <div class="exp-text">
+            <span class="exp-label" id="nav-luoghi">Luoghi da vedere</span>
+            <span class="exp-sublabel" id="nav-luoghi-sub">Vaticano, Prati e dintorni</span>
+          </div>
+          <span class="exp-arrow">›</span>
+        </div>
+        <div class="exp-item" onclick="switchTab('mangiare')">
+          <div class="exp-ico">🍽️</div>
+          <div class="exp-text">
+            <span class="exp-label" id="nav-mangiare">Dove mangiare</span>
+            <span class="exp-sublabel" id="nav-mangiare-sub">Ristoranti e bar consigliati</span>
+          </div>
+          <span class="exp-arrow">›</span>
+        </div>
+        <div class="exp-item" onclick="switchTab('muoversi')">
+          <div class="exp-ico">🚇</div>
+          <div class="exp-text">
+            <span class="exp-label" id="nav-muoversi">Info &amp; Muoversi</span>
+            <span class="exp-sublabel" id="nav-muoversi-sub">Trasporti, emergenze e check-out</span>
+          </div>
+          <span class="exp-arrow">›</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:4px 14px 40px;background:#F0EDE8">
+      <div class="contact-bar">
+        <div class="cb-text"><div class="cb-lbl" id="cb-lbl">Contatta il tuo host</div><div class="cb-name">Massimiliano</div></div>
+        <div style="display:flex;gap:8px;position:relative;z-index:1">
+          <a href="https://wa.me/393932626399" style="background:#25D366;border:none;border-radius:100px;color:white;font-family:Jost,sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px;cursor:pointer;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:4px;transition:opacity .2s">💬 <span id="cb-wa-txt">WhatsApp</span></a>
+          <a href="tel:+393932626399" class="cb-btn">📞 <span id="cb-btn-txt">Chiama</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOGGIORNO -->
+  <div id="tab-soggiorno" class="tab-content">
+    <div class="page-header">
+      <div class="ph-eyebrow" id="ph-sog-eye">Il tuo</div>
+      <div class="ph-title" id="ph-sog-title">Soggiorno</div>
+    </div>
+    <div class="tab-body">
+
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-times">Check-in &amp; Check-out</div>
+        <div class="info-row"><span class="ir-label" id="lbl-ci">Check-in</span><span class="ir-value">dalle 15:00</span></div>
+        <div class="info-row"><span class="ir-label" id="lbl-co">Check-out</span><span class="ir-value">entro le 11:00</span></div>
+        <div class="info-row"><span class="ir-label" id="lbl-guests">Ospiti massimi</span><span class="ir-value">6 persone</span></div>
+        <div class="info-row"><span class="ir-label" id="lbl-addr">Indirizzo</span><span class="ir-value">Via Ottaviano 25, Roma 00192</span></div>
+      </div>
+
+      <!-- COME RAGGIUNGERCI -->
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-reach">Come raggiungerci</div>
+        <p id="txt-reach">Siamo nel quartiere Prati, a pochi passi dal Vaticano. La fermata metro più vicina è <strong>Ottaviano</strong> (Linea A), a 5 minuti a piedi da casa.</p>
+        <a id="maps-reach-btn" href="https://maps.google.com/?q=Via+Ottaviano+25+Roma" target="_blank" class="maps-big-btn" style="margin-top:12px">
+          🧭 <span id="maps-reach-txt">Apri su Google Maps</span>
+        </a>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-access">Come accedere</div>
+        <p id="txt-access">Suona al citofono: ti apriremo noi dall'interno.<br><br>Per entrare in appartamento riceverai un <strong>codice via WhatsApp o SMS</strong> prima del tuo arrivo. Per qualsiasi dubbio contattami direttamente.</p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-parking">Parcheggio</div>
+        <p id="txt-parking">Parcheggio disponibile nelle <strong>strade intorno alla struttura</strong>. Abbiamo inoltre una convenzione con il <strong>Parcheggio Vespasiano</strong> in Via Vespasiano — chiedici i dettagli!</p>
+      </div>
+
+      <div class="wifi-card">
+        <div class="wifi-ico">📡</div>
+        <div class="wifi-net">WiFi</div>
+        <div class="wifi-name" id="wifi-name-val">In aggiornamento</div>
+        <div id="wifi-pwd-row" style="margin-bottom:12px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px" id="wifi-pwd-lbl">Password</div><div id="wifi-pwd" style="font-family:'Playfair Display',serif;font-size:20px;color:white;letter-spacing:1px">In aggiornamento</div></div>
+        <div class="wifi-tip" id="wifi-tip">📶 Segnale eccellente in tutta la struttura</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-rules">Regole della Casa</div>
+        <div class="rule-item"><div class="rule-n">1</div><div><div class="rule-title" id="r1t">Silenzio Notturno</div><div class="rule-desc" id="r1d">Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto, nel rispetto del vicinato.</div></div></div>
+        <div class="rule-item"><div class="rule-n">2</div><div><div class="rule-title" id="r2t">Niente Fumo</div><div class="rule-desc" id="r2d">Vietato fumare ovunque nella struttura.</div></div></div>
+        <div class="rule-item"><div class="rule-n">3</div><div><div class="rule-title" id="r3t">Animali Domestici</div><div class="rule-desc" id="r3d">Non ammessi.</div></div></div>
+        <div class="rule-item"><div class="rule-n">4</div><div><div class="rule-title" id="r4t">Ospiti Esterni</div><div class="rule-desc" id="r4d">Visitatori di passaggio benvenuti, ma non possono pernottare.</div></div></div>
+        <div class="rule-item"><div class="rule-n">5</div><div><div class="rule-title" id="r5t">Raccolta Rifiuti</div><div class="rule-desc" id="r5d">I sacchi colorati si trovano <strong>sotto al lavandino</strong>. Seguire i colori per la differenziata.</div></div></div>
+        <div class="rule-item"><div class="rule-n">6</div><div><div class="rule-title" id="r6t">Rispetto degli Spazi</div><div class="rule-desc" id="r6d">Ti chiediamo di trattare la casa con cura e rispetto.</div></div></div>
+      </div>
+
+      <div class="space-card">
+        <div class="sc-header"><span class="sc-ico">🛌</span><div class="sc-name" id="sp1-name">Camera da Letto</div></div>
+        <p class="sc-desc" id="camera-desc">2 camere con letto matrimoniale. Biancheria inclusa.</p>
+        <div class="tags"><span class="tag" id="tag-ac">Aria condizionata</span><span class="tag" id="tag-heat">Riscaldamento</span><span class="tag" id="tag-tv">Smart TV</span><span class="tag" id="tag-safe">Cassaforte</span></div>
+      </div>
+      <div class="space-card">
+        <div class="sc-header"><span class="sc-ico">🍳</span><div class="sc-name" id="sp2-name">Cucina</div></div>
+        <p class="sc-desc" id="sp2-desc">Cucina completamente attrezzata. <strong>Caffè, tè e olio d'oliva</strong> inclusi.</p>
+        <div class="tags"><span class="tag">Forno</span><span class="tag">Microonde</span><span class="tag">Lavastoviglie</span><span class="tag" id="tag-coffee">Macchinetta caffè</span></div>
+      </div>
+      <div class="space-card">
+        <div class="sc-header"><span class="sc-ico">🚿</span><div class="sc-name" id="sp3-name">Bagno</div></div>
+        <p class="sc-desc" id="sp3-desc">Bagno con doccia, asciugacapelli e ferro da stiro.</p>
+        <div class="tags"><span class="tag" id="tag-shower">Doccia</span><span class="tag" id="tag-hairdryer">Asciugacapelli</span><span class="tag" id="tag-iron">Ferro da stiro</span></div>
+      </div>
+      <div class="space-card">
+        <div class="sc-header"><span class="sc-ico">🌆</span><div class="sc-name" id="sp4-name">Balcone</div></div>
+        <p class="sc-desc" id="sp4-desc">Splendido balcone con <strong>vista panoramica su Roma</strong>.</p>
+        <div class="tags"><span class="tag" id="tag-view">Vista Roma</span></div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-extras">Servizi Extra</div>
+        <div class="svc-row"><span class="svc-ico">🧺</span><div><div class="svc-title" id="svc1t">Cambio Biancheria</div><div class="svc-desc" id="svc1d">Disponibile su richiesta <strong>a pagamento</strong>.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">🧹</span><div><div class="svc-title" id="svc2t">Pulizie Aggiuntive</div><div class="svc-desc" id="svc2d">A pagamento — contattaci per info e prezzi.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">🚗</span><div><div class="svc-title" id="svc3t">Transfer Aeroporto</div><div class="svc-desc" id="svc3d">Su richiesta. Contattaci su WhatsApp o Airbnb.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">☕</span><div><div class="svc-title" id="svc4t">Colazione</div><div class="svc-desc" id="svc4d">Disponibile su richiesta.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">🛍️</span><div><div class="svc-title" id="svc5t">Spesa a Domicilio</div><div class="svc-desc" id="svc5d">Organizziamo la spesa per il tuo arrivo.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">🚲</span><div><div class="svc-title" id="svc6t">Noleggio Biciclette</div><div class="svc-desc" id="svc6d">Esplora Roma in bici — contattaci.</div></div></div>
+        <div class="svc-row"><span class="svc-ico">🏛️</span><div><div class="svc-title" id="svc7t">Escursioni Locali</div><div class="svc-desc" id="svc7d">Esperienze e tour organizzati. Chiedi a Massimiliano!</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUOGHI -->
+  <div id="tab-luoghi" class="tab-content">
+    <div class="page-header">
+      <div class="ph-eyebrow" id="ph-luoghi-eye">Esplora Roma</div>
+      <div class="ph-title" id="ph-luoghi-title">Luoghi</div>
+    </div>
+    <div class="tab-body">
+      <div class="place-card"><div class="place-dot"></div><div>
+        <div class="place-name">⛪ Basilica di San Pietro</div>
+        <p class="place-desc" id="pl1-desc">La cattedrale più grande del mondo e il cuore della Città del Vaticano. Capolavoro dell'architettura rinascimentale, assolutamente da non perdere.</p>
+        <div class="place-how" id="pl1-how">🚶 A soli <strong>800 metri</strong> da casa — circa 10 minuti a piedi.<br>Attenzione agli orari e al codice di abbigliamento.</div>
+        <a href="https://maps.google.com/?q=Basilica+San+Pietro+Roma" target="_blank" class="maps-btn">🧭 Portami qui</a>
+      </div></div>
+
+      <div class="place-card"><div class="place-dot"></div><div>
+        <div class="place-name">🏛️ Piazza Risorgimento</div>
+        <p class="place-desc" id="pl2-desc">La piazza più vicina, punto di riferimento del quartiere Prati. Ottimo punto di partenza per raggiungere il Vaticano o Via Cola di Rienzo.</p>
+        <div class="place-how" id="pl2-how">🚶 <strong>1 minuto a piedi</strong> — dietro l'angolo!</div>
+        <a href="https://maps.google.com/?q=Piazza+Risorgimento+Roma" target="_blank" class="maps-btn">🧭 Portami qui</a>
+      </div></div>
+
+      <div class="place-card"><div class="place-dot"></div><div>
+        <div class="place-name">🧱 Mura Vaticane</div>
+        <p class="place-desc" id="pl3-desc">Le imponenti mura che circondano lo Stato della Città del Vaticano. Un suggestivo percorso storico lungo le antiche mura medievali.</p>
+        <div class="place-how" id="pl3-how">🚶 <strong>10 minuti a piedi</strong> da casa.</div>
+        <a href="https://maps.google.com/?q=Mura+Vaticane+Roma" target="_blank" class="maps-btn">🧭 Portami qui</a>
+      </div></div>
+
+      <div class="place-card"><div class="place-dot"></div><div>
+        <div class="place-name">🛍️ Via Cola di Rienzo</div>
+        <p class="place-desc" id="pl4-desc">Il viale dello shopping di Prati: boutique, negozi di alimentari, bar, ristoranti e tutto il necessario per la vita quotidiana.</p>
+        <div class="place-how" id="pl4-how">🚶 <strong>5 minuti a piedi</strong> da casa.</div>
+        <a href="https://maps.google.com/?q=Via+Cola+di+Rienzo+Roma" target="_blank" class="maps-btn">🧭 Portami qui</a>
+      </div></div>
+
+      <div class="t-card" style="background:linear-gradient(135deg,var(--bg-card),var(--bg-lift));border-color:rgba(196,138,42,.3)">
+        <div class="t-card-label" id="secret-lbl">🤫 Il segreto locale</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px">The Race Club</div>
+        <p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.7)" id="secret-text">Via Labicana 52 — Un posto speciale che solo i romani veri conoscono. Il consiglio personale di Massimiliano! 🏁</p>
+        <a href="https://maps.google.com/?q=Via+Labicana+52+Roma" target="_blank" class="maps-btn" style="margin-top:10px">🧭 Portami qui</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANGIARE -->
+  <div id="tab-mangiare" class="tab-content">
+    <div class="page-header">
+      <div class="ph-eyebrow" id="ph-man-eye">Consigli degli host</div>
+      <div class="ph-title" id="ph-man-title">Mangiare</div>
+    </div>
+    <div class="tab-body">
+      <div class="resto-card">
+        <div class="resto-top" style="background:linear-gradient(135deg,#2a1800,#140c00)">🍝<span class="resto-type-badge">Cucina romana</span></div>
+        <div class="resto-body">
+          <div class="resto-name">Ristorante Tonnarello</div>
+          <div class="resto-type" id="rt1">Cucina romana · San Pietro</div>
+          <p class="resto-desc" id="rd1">Autentica cucina romana vicino al Vaticano. Il consiglio numero uno dell'host per una cena indimenticabile.</p>
+          <div class="resto-footer"><div class="tags"><span class="tag">€€</span><span class="tag" id="rtag1">Vicino</span></div><a href="https://maps.app.goo.gl/1gksk1cCKenckjNh7" target="_blank" class="guide-btn">🧭 Portami qui</a></div>
+        </div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-top" style="background:linear-gradient(135deg,#1a1400,#0e0a00)">🍷<span class="resto-type-badge">Ristorante</span></div>
+        <div class="resto-body">
+          <div class="resto-name">Arlù</div>
+          <div class="resto-type" id="rt2">Cucina tradizionale · San Pietro</div>
+          <p class="resto-desc" id="rd2">Atmosfera familiare e cucina di qualità a pochi passi dalla struttura. Ottimo rapporto qualità-prezzo.</p>
+          <div class="resto-footer"><div class="tags"><span class="tag">€€</span><span class="tag">Prati</span></div><a href="https://maps.google.com/?q=Arlu+Roma" target="_blank" class="guide-btn">🧭 Portami qui</a></div>
+        </div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-top" style="background:linear-gradient(135deg,#1a1000,#0e0800)">🫙<span class="resto-type-badge">Osteria</span></div>
+        <div class="resto-body">
+          <div class="resto-name">Caligola Osteria Sincera</div>
+          <div class="resto-type" id="rt3">Osteria · Cucina sincera</div>
+          <p class="resto-desc" id="rd3">Un'osteria autentica dove la tradizione culinaria romana è protagonista. Ingredienti freschi e piatti della memoria.</p>
+          <div class="resto-footer"><div class="tags"><span class="tag">€€</span><span class="tag" id="rtag3">Tradizione</span></div><a href="https://maps.google.com/?q=Caligola+Osteria+Roma" target="_blank" class="guide-btn">🧭 Portami qui</a></div>
+        </div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-top" style="background:linear-gradient(135deg,#1a0e00,#100800)">☕<span class="resto-type-badge" id="rt4badge">Bar · Colazione</span></div>
+        <div class="resto-body">
+          <div class="resto-name">Bar Parenti</div>
+          <div class="resto-type" id="rt4">Bar · Colazione · Via Ottaviano 33</div>
+          <p class="resto-desc" id="rd4">A due passi dalla porta! Il bar storico del quartiere, perfetto per il caffè e la colazione alla romana.</p>
+          <div class="resto-footer"><div class="tags"><span class="tag">€</span><span class="tag" id="rtag4">Vicinissimo</span></div><a href="https://maps.google.com/?q=Bar+Parenti+Via+Ottaviano+Roma" target="_blank" class="guide-btn">🧭 Portami qui</a></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-card-label" id="lbl-super">🛒 Supermercato</div>
+        <p id="txt-super"><strong>Supermercato Pam</strong> in Via Ottaviano 17 — a 2 minuti a piedi da casa. Tutto il necessario per la spesa quotidiana.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUOVERSI -->
+  <div id="tab-muoversi" class="tab-content">
+    <div class="page-header">
+      <div class="ph-eyebrow" id="ph-mov-eye">Trasporti &amp; Emergenze</div>
+      <div class="ph-title" id="ph-mov-title">Muoversi</div>
+    </div>
+    <div class="tab-body">
+      <!-- Aeroporto -->
+      <div class="move-card"><div class="move-ico">✈️</div><div><div class="move-title" id="mv0t">Dall'Aeroporto di Fiumicino</div><div class="move-desc" id="mv0d">All'uscita trovi i <strong>taxi ufficiali bianchi</strong>. Tariffa fissa ~<strong>50–60€</strong> per il centro, destinazione Via Ottaviano 25.<br><br><strong>🚆 Leonardo Express</strong> → Roma Termini, poi Metro A (dir. Battistini) → <strong>Ottaviano</strong>. Totale ~55 min.</div></div></div>
+      <div class="move-card"><div class="move-ico">🚉</div><div><div class="move-title" id="mv00t">Da Roma Termini</div><div class="move-desc" id="mv00d">Prendi la <strong>Metro A</strong> direzione Battistini e scendi a <strong>Ottaviano</strong> (4 fermate, ~12 min). A piedi da lì: 5 minuti.</div></div></div>
+      <div class="move-card"><div class="move-ico">🚇</div><div><div class="move-title" id="mv1t">Metro — fermata Ottaviano</div><div class="move-desc" id="mv1d">Fermata metro <strong>Ottaviano</strong> (Linea A) a <strong>5 minuti a piedi</strong> da casa. Comoda per raggiungere Termini, Barberini, Spagna e tutta Roma.</div></div></div>
+      <div class="move-card"><div class="move-ico">🚌</div><div><div class="move-title" id="mv2t">Bus</div><div class="move-desc" id="mv2d">Da <strong>Piazza Risorgimento</strong> (1 minuto da casa) partono numerose linee bus per il centro storico e il resto di Roma.</div></div></div>
+      <div class="move-card"><div class="move-ico">🎫</div><div><div class="move-title" id="mv3t">Biglietti</div><div class="move-desc" id="mv3d">Biglietto singolo <strong>~€1,50</strong>, valido 100 min su metro e bus. Acquistabile in edicole, tabacchi e nelle stazioni metro.</div></div></div>
+      <div class="move-card"><div class="move-ico">🚖</div><div><div class="move-title" id="mv4t">Taxi &amp; App</div><div class="move-desc" id="mv4d">Taxi Roma: <a href="tel:060609" style="color:var(--amber);font-weight:600">060609</a><br>App: <strong>itTaxi</strong> o <strong>FREE NOW</strong>.</div></div></div>
+
+      <div class="t-card-label" style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:var(--amber);margin:16px 0 10px;font-weight:500;display:block" id="lbl-sos">🆘 Emergenze</div>
+
+      <div class="sos-card"><div class="sos-ico">🏥</div><div><div class="sos-name" id="sos1n">Pronto Soccorso</div><div class="sos-desc" id="sos1d">Plesso Santa Maria Incoronata dell'Olmo</div></div><a href="tel:118" class="call-btn">📞 118</a></div>
+      <div class="sos-card"><div class="sos-ico">💊</div><div><div class="sos-name" id="sos2n">Farmacia</div><div class="sos-desc" id="sos2d">Farmacia in Via Cola di Rienzo</div></div></div>
+      <div class="sos-card"><div class="sos-ico">👮</div><div><div class="sos-name" id="sos3n">Carabinieri</div><div class="sos-desc" id="sos3d">Forze dell'ordine — emergenze</div></div><a href="tel:112" class="call-btn">📞 112</a></div>
+      <div class="sos-card"><div class="sos-ico">🔥</div><div><div class="sos-name" id="sos4n">Vigili del Fuoco</div><div class="sos-desc" id="sos4d">Incendi, allagamenti, emergenze strutturali</div></div><a href="tel:115" class="call-btn">📞 115</a></div>
+      <div class="sos-card"><div class="sos-ico">⚡</div><div><div class="sos-name" id="sos5n">Quadro elettrico</div><div class="sos-desc" id="sos5d">All'interno dell'appartamento</div></div></div>
+      <div class="sos-card"><div class="sos-ico">🔧</div><div><div class="sos-name" id="sos6n">Valvola gas / acqua</div><div class="sos-desc" id="sos6d">Sul balcone</div></div></div>
+
+      <div class="contact-bar" style="margin-top:12px">
+        <div class="cb-text"><div class="cb-lbl" id="cb3-lbl">Il tuo host</div><div class="cb-name">Massimiliano</div></div>
+        <div style="display:flex;gap:8px;position:relative;z-index:1"><a href="https://wa.me/393932626399" style="background:#25D366;border:none;border-radius:100px;color:white;font-family:Jost,sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px;cursor:pointer;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:4px">💬</a><a href="tel:+393932626399" class="cb-btn">📞 <span id="cb3-btn">Chiama</span></a></div>
+      </div>
+
+      <div class="t-card" style="margin-top:4px">
+        <div class="t-card-label" id="lbl-checkout">👋 Check-out</div>
+        <div class="step-item"><div class="step-n">1</div><div><div class="step-title" id="st1t">Bagagli</div><div class="step-desc" id="st1d">Controlla armadi, bagno, balcone e cucina prima di uscire.</div></div></div>
+        <div class="step-item"><div class="step-n">2</div><div><div class="step-title" id="st2t">Chiudi la porta</div><div class="step-desc" id="st2d">Chiudi bene la porta prima di uscire.</div></div></div>
+        <div class="step-item"><div class="step-n">3</div><div><div class="step-title" id="st3t">Lascia una recensione</div><div class="step-desc" id="st3d">Il tuo giudizio è prezioso! Aiutaci su <strong>Booking.com</strong> o <strong>Google Maps</strong>.</div></div></div>
+      </div>
+
+      <div class="t-card" style="background:var(--bg-card);border-color:rgba(196,138,42,.35);text-align:center;padding:22px;margin-top:4px">
+        <div style="font-size:26px;margin-bottom:9px">🏛️✨</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;margin-bottom:7px" id="bye-title">Speriamo di rivederti presto!</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.52);line-height:1.65" id="bye-text">Speriamo che il tuo soggiorno presso Le Stanze di Roma sia stato ottimo!<br>— Massimiliano ❤️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="switchTab('home')"><span class="n-ico">🏠</span><span class="n-lbl" id="nav-lbl-home">Home</span></button>
+    <button class="nav-btn" onclick="switchTab('soggiorno')"><span class="n-ico">🛏️</span><span class="n-lbl" id="nav-lbl-sog">Soggiorno</span></button>
+    <button class="nav-btn" onclick="switchTab('luoghi')"><span class="n-ico">🏛️</span><span class="n-lbl" id="nav-lbl-luo">Luoghi</span></button>
+    <button class="nav-btn" onclick="switchTab('mangiare')"><span class="n-ico">🍽️</span><span class="n-lbl" id="nav-lbl-man">Mangiare</span></button>
+    <button class="nav-btn" onclick="switchTab('muoversi')"><span class="n-ico">🚇</span><span class="n-lbl" id="nav-lbl-mov">Muoversi</span></button>
+  </nav>
+</div>
+
+</div>
+<script>
+var T = {
+  it:{
+    'wc-title':'Benvenuti! 👋',
+    'wc-text':'Ciao, io sono Massimiliano il tuo host di fiducia! 🏛️<br><br>Sono felice di accoglierti nelle mie stanze nel cuore di Roma, a pochi passi dal Vaticano. Questa guida ti aiuterà a scoprire tutto quello che ti serve per un soggiorno perfetto.<br><br>Per qualsiasi esigenza non esitare a contattarmi — sono sempre disponibile!',
+    'exp-title':'Esplora la guida','exp-sub':'Tutto quello che ti serve in un tap',
+    'nav-soggiorno':'Il tuo soggiorno','nav-soggiorno-sub':'Check-in, WiFi, regole e spazi',
+    'nav-luoghi':'Luoghi da vedere','nav-luoghi-sub':'Vaticano, Prati e dintorni',
+    'nav-mangiare':'Dove mangiare','nav-mangiare-sub':'Ristoranti e bar consigliati',
+    'nav-muoversi':'Info & Muoversi','nav-muoversi-sub':'Trasporti, emergenze e check-out',
+    'cb-lbl':'Contatta il tuo host','cb-btn-txt':'Chiama','cb-wa-txt':'WhatsApp',
+    'ph-sog-eye':'Il tuo','ph-sog-title':'Soggiorno',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out','lbl-guests':'Ospiti massimi','lbl-addr':'Indirizzo',
+    'lbl-access':'Come accedere',
+    'acc1t':'Suona al citofono','acc1d':'Arriva al portone di Via Ottaviano 25 e suona: ti apriremo noi dall&#39;interno.',
+    'acc2t':'Codice appartamento','acc2d':'Per entrare in appartamento riceverai un <strong>codice via WhatsApp o SMS</strong> prima del tuo arrivo.',
+    'acc3t':'Benvenuto!','acc3d':'Per qualsiasi dubbio sull&#39;accesso contattami su WhatsApp — rispondo sempre velocemente.',
+    'lbl-reach':'Come raggiungerci','txt-reach':'Siamo nel quartiere Prati, a pochi passi dal Vaticano. La fermata metro più vicina è <strong>Ottaviano</strong> (Linea A), a 5 minuti a piedi da casa.','maps-reach-txt':'Apri su Google Maps',
+    'lbl-parking':'Parcheggio','txt-parking':'Parcheggio disponibile nelle <strong>strade intorno alla struttura</strong>. Abbiamo inoltre una convenzione con il <strong>Parcheggio Vespasiano</strong> in Via Vespasiano — chiedici i dettagli!',
+    'wifi-name-val':'In aggiornamento','wifi-pwd-lbl':'Password','wifi-pwd':'In aggiornamento','wifi-tip':'📶 Segnale eccellente in tutta la struttura',
+    'lbl-rules':'Regole della Casa',
+    'r1t':'Silenzio Notturno','r1d':'Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto, nel rispetto del vicinato.',
+    'r2t':'Niente Fumo','r2d':'Vietato fumare all&#39;interno. Consentito solo sul balcone.',
+    'r3t':'Animali Domestici','r3d':'Ammessi previa comunicazione all&#39;host.',
+    'r4t':'Ospiti Esterni','r4d':'Ospiti esterni non ammessi.',
+    'r5t':'Raccolta Rifiuti','r5d':'I sacchi colorati si trovano <strong>sotto al lavandino</strong>. Seguire i colori per la differenziata.',
+    'r6t':'Rispetto degli Spazi','r6d':'Ti chiediamo di trattare la casa con cura e rispetto.',
+    'sp1-name':'Camere da Letto','camera-desc':'2 camere con letto matrimoniale. Biancheria inclusa.',
+    'sp2-name':'Cucina','sp2-desc':'Cucina completamente attrezzata. <strong>Caffè, tè e olio d&#39;oliva</strong> inclusi.',
+    'sp3-name':'Bagno','sp3-desc':'Bagno con doccia, asciugacapelli e ferro da stiro.',
+    'sp4-name':'Balcone','sp4-desc':'Splendido balcone con <strong>vista panoramica su Roma</strong>.',
+    'tag-ac':'Aria condizionata','tag-heat':'Riscaldamento','tag-tv':'Smart TV','tag-safe':'Cassaforte','tag-coffee':'Macchinetta caffè','tag-shower':'Doccia','tag-hairdryer':'Asciugacapelli','tag-iron':'Ferro da stiro','tag-view':'Vista Roma',
+    'lbl-extras':'Servizi Extra',
+    'svc1t':'Cambio Biancheria','svc1d':'Disponibile su richiesta <strong>a pagamento</strong>.',
+    'svc2t':'Pulizie Aggiuntive','svc2d':'A pagamento — contattaci per info e prezzi.',
+    'svc3t':'Transfer Aeroporto','svc3d':'Su richiesta. Contattaci via WhatsApp.',
+    'svc4t':'Colazione','svc4d':'Disponibile su richiesta.',
+    'svc5t':'Spesa a Domicilio','svc5d':'Su richiesta. Contattaci via WhatsApp.',
+    'svc6t':'Noleggio Biciclette','svc6d':'Esplora Roma in bici — contattaci.',
+    'svc7t':'Escursioni Locali','svc7d':'Esperienze e tour organizzati. Chiedi a Massimiliano!',
+    'ph-luoghi-eye':'Esplora Roma','ph-luoghi-title':'Luoghi',
+    'pl1-desc':'La cattedrale più grande del mondo e il cuore della Città del Vaticano. Capolavoro dell&#39;architettura rinascimentale, assolutamente da non perdere.',
+    'pl1-how':'🚶 A soli <strong>800 metri</strong> da casa — circa 10 minuti a piedi.<br>Attenzione agli orari e al codice di abbigliamento.',
+    'pl2-desc':'La piazza più vicina, punto di riferimento del quartiere Prati. Ottimo punto di partenza per raggiungere il Vaticano o Via Cola di Rienzo.',
+    'pl2-how':'🚶 <strong>1 minuto a piedi</strong> — dietro l&#39;angolo!',
+    'pl3-desc':'Le imponenti mura che circondano lo Stato della Città del Vaticano. Un suggestivo percorso storico.',
+    'pl3-how':'🚶 <strong>10 minuti a piedi</strong> da casa.',
+    'pl4-desc':'Il viale dello shopping di Prati: boutique, negozi di alimentari, bar, ristoranti e tutto il necessario.',
+    'pl4-how':'🚶 <strong>5 minuti a piedi</strong> da casa.',
+    'secret-lbl':'🤫 Il segreto locale','secret-text':'Via Labicana 52 — Un posto speciale che solo i romani veri conoscono. Il consiglio personale di Massimiliano! 🏁',
+    'ph-man-eye':'Consigli dell&#39;host','ph-man-title':'Mangiare',
+    'rt1':'Cucina romana · San Pietro','rd1':'Autentica cucina romana vicino al Vaticano. Il consiglio numero uno dell&#39;host per una cena indimenticabile.','rtag1':'Vicino',
+    'rt2':'Cucina tradizionale · San Pietro','rd2':'Atmosfera familiare e cucina di qualità a pochi passi dalla struttura. Ottimo rapporto qualità-prezzo.',
+    'rt3':'Osteria · Cucina sincera','rd3':'Un&#39;osteria autentica dove la tradizione culinaria romana è protagonista. Ingredienti freschi e piatti della memoria.','rtag3':'Tradizione',
+    'rt4badge':'Bar · Colazione','rt4':'Bar · Colazione · Via Ottaviano 33','rd4':'A due passi dalla porta! Il bar storico del quartiere, perfetto per il caffè e la colazione alla romana.','rtag4':'Vicinissimo',
+    'lbl-super':'🛒 Supermercato','txt-super':'<strong>Supermercato Pam</strong> in Via Ottaviano 17 — a 2 minuti a piedi da casa.',
+    'ph-mov-eye':'Trasporti & Emergenze','ph-mov-title':'Info & Muoversi',
+    'mv0t':'Dall&#39;Aeroporto di Fiumicino','mv0d':'All&#39;uscita trovi i <strong>taxi ufficiali bianchi</strong>. Tariffa fissa ~<strong>50–60€</strong> per il centro, Via Ottaviano 25.<br><br><strong>🚆 Leonardo Express</strong> → Roma Termini, poi Metro A (dir. Battistini) → <strong>Ottaviano</strong>. Totale ~55 min.',
+    'mv00t':'Da Roma Termini','mv00d':'Prendi la <strong>Metro A</strong> direzione Battistini e scendi a <strong>Ottaviano</strong> (4 fermate, ~12 min). A piedi da lì: 5 minuti.',
+    'mv1t':'Metro — fermata Ottaviano','mv1d':'Fermata metro <strong>Ottaviano</strong> (Linea A) a <strong>5 minuti a piedi</strong> da casa.',
+    'mv2t':'Bus','mv2d':'Da <strong>Piazza Risorgimento</strong> (1 minuto da casa) partono numerose linee bus per il centro storico.',
+    'mv3t':'Biglietti','mv3d':'Biglietto singolo <strong>~€1,50</strong>, valido 100 min su metro e bus.',
+    'mv4t':'Taxi & App','mv4d':'Taxi Roma: <a href="tel:060609" style="color:var(--amber);font-weight:600">060609</a><br>App: <strong>itTaxi</strong> o <strong>FREE NOW</strong>.',
+    'lbl-sos':'🆘 Emergenze',
+    'sos1n':'Pronto Soccorso','sos1d':'Plesso Santa Maria Incoronata dell&#39;Olmo',
+    'sos2n':'Farmacia','sos2d':'Farmacia in Via Cola di Rienzo',
+    'sos3n':'Carabinieri','sos3d':'Forze dell&#39;ordine — emergenze',
+    'sos4n':'Vigili del Fuoco','sos4d':'Incendi, allagamenti, emergenze strutturali',
+    'sos5n':'Quadro elettrico','sos5d':'All&#39;interno dell&#39;appartamento',
+    'sos6n':'Valvola gas / acqua','sos6d':'Sul balcone',
+    'cb3-lbl':'Il tuo host','cb3-btn':'Chiama',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Orario — entro le 11:00','st1d':'Ricordati di effettuare il check-out entro le <strong>11:00</strong>. Per esigenze particolari contattaci in anticipo.',
+    'st2t':'Chiudi la porta','st2d':'Chiudi bene la porta prima di uscire.',
+    'st3t':'Lascia una recensione','st3d':'Il tuo giudizio è prezioso! Aiutaci su <strong>Booking.com</strong> o <strong>Google Maps</strong>.',
+    'bye-title':'Speriamo di rivederti presto!','bye-text':'Speriamo che il tuo soggiorno presso Le Stanze di Roma sia stato ottimo!<br>— Massimiliano ❤️',
+    'nav-lbl-home':'Home','nav-lbl-sog':'Soggiorno','nav-lbl-luo':'Luoghi','nav-lbl-man':'Mangiare','nav-lbl-mov':'Muoversi',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-guests-lbl':'Ospiti','s-maps-lbl':'Naviga',
+    'h-badge':'✦ PRATI · VATICANO · ROMA'
+  },
+  en:{
+    'wc-title':'Welcome! 👋',
+    'wc-text':'Hi, I am Massimiliano, your trusted host! 🏛️<br><br>I am so happy to welcome you to my rooms in the heart of Rome, steps from the Vatican. This guide will help you discover everything you need for a perfect stay.<br><br>Do not hesitate to contact me for anything — I am always available!',
+    'exp-title':'Explore the guide','exp-sub':'Everything you need in one tap',
+    'nav-soggiorno':'Your stay','nav-soggiorno-sub':'Check-in, WiFi, rules and spaces',
+    'nav-luoghi':'Places to visit','nav-luoghi-sub':'Vatican, Prati and surroundings',
+    'nav-mangiare':'Where to eat','nav-mangiare-sub':'Recommended restaurants and bars',
+    'nav-muoversi':'Info & Getting around','nav-muoversi-sub':'Transport, emergencies and check-out',
+    'cb-lbl':'Contact your host','cb-btn-txt':'Call','cb-wa-txt':'WhatsApp',
+    'ph-sog-eye':'Your','ph-sog-title':'Stay',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out','lbl-guests':'Max guests','lbl-addr':'Address',
+    'lbl-access':'How to access',
+    'acc1t':'Ring the doorbell','acc1d':'Head to Via Ottaviano 25 and ring the doorbell: we will buzz you in.',
+    'acc2t':'Apartment access code','acc2d':'To enter the apartment you will receive a <strong>code via WhatsApp or SMS</strong> before your arrival.',
+    'acc3t':'Welcome!','acc3d':'For any doubts about access, contact me on WhatsApp — I always reply quickly.',
+    'lbl-reach':'How to reach us','txt-reach':'We are in the Prati neighbourhood, steps from the Vatican. The nearest metro stop is <strong>Ottaviano</strong> (Line A), just 5 minutes on foot.','maps-reach-txt':'Open on Google Maps',
+    'lbl-parking':'Parking','txt-parking':'Street parking is available <strong>around the property</strong>. We also have an arrangement with <strong>Parcheggio Vespasiano</strong> on Via Vespasiano — ask us for details!',
+    'wifi-name-val':'To be confirmed','wifi-pwd-lbl':'Password','wifi-pwd':'To be confirmed','wifi-tip':'📶 Excellent signal throughout the apartment',
+    'lbl-rules':'House Rules',
+    'r1t':'Quiet Hours','r1d':'From 11:00 PM to 8:00 AM please keep noise levels down, out of respect for neighbours.',
+    'r2t':'No Smoking','r2d':'Smoking is not allowed indoors. Permitted on the balcony only.',
+    'r3t':'Pets','r3d':'Allowed with prior notice to the host.',
+    'r4t':'External Guests','r4d':'No external guests permitted.',
+    'r5t':'Waste Disposal','r5d':'Coloured bags are located <strong>under the sink</strong>. Please follow colour coding for recycling.',
+    'r6t':'Respect for the Space','r6d':'Please treat the apartment with care and respect.',
+    'sp1-name':'Bedrooms','camera-desc':'2 bedrooms with double beds. Fresh linen included.',
+    'sp2-name':'Kitchen','sp2-desc':'Fully equipped kitchen. <strong>Coffee, tea and olive oil</strong> included.',
+    'sp3-name':'Bathroom','sp3-desc':'Bathroom with shower, hairdryer and iron.',
+    'sp4-name':'Balcony','sp4-desc':'Beautiful balcony with <strong>panoramic views over Rome</strong>.',
+    'tag-ac':'Air conditioning','tag-heat':'Heating','tag-tv':'Smart TV','tag-safe':'Safe','tag-coffee':'Coffee machine','tag-shower':'Shower','tag-hairdryer':'Hairdryer','tag-iron':'Iron','tag-view':'Rome view',
+    'lbl-extras':'Extra Services',
+    'svc1t':'Linen Change','svc1d':'Available on request — <strong>extra charge applies</strong>.',
+    'svc2t':'Extra Cleaning','svc2d':'Paid service — contact us for info and prices.',
+    'svc3t':'Airport Transfer','svc3d':'On request. Contact us via WhatsApp.',
+    'svc4t':'Breakfast','svc4d':'Available on request.',
+    'svc5t':'Grocery Delivery','svc5d':'On request. Contact us via WhatsApp.',
+    'svc6t':'Bicycle Rental','svc6d':'Explore Rome by bike — contact us.',
+    'svc7t':'Local Excursions','svc7d':'Organised experiences and tours. Ask Massimiliano!',
+    'ph-luoghi-eye':'Explore Rome','ph-luoghi-title':'Places',
+    'pl1-desc':'The largest cathedral in the world and the heart of Vatican City. A masterpiece of Renaissance architecture — an absolute must.',
+    'pl1-how':'🚶 Just <strong>800 metres</strong> from home — about 10 minutes on foot.<br>Check opening times and dress code.',
+    'pl2-desc':'The nearest square, a key landmark of the Prati neighbourhood. A great starting point for the Vatican or Via Cola di Rienzo.',
+    'pl2-how':'🚶 <strong>1 minute on foot</strong> — just around the corner!',
+    'pl3-desc':'The imposing walls surrounding Vatican City. A fascinating historical walk along the ancient medieval walls.',
+    'pl3-how':'🚶 <strong>10 minutes on foot</strong> from home.',
+    'pl4-desc':'Prati&#39;s main shopping street: boutiques, food shops, bars, restaurants and everything you need for daily life.',
+    'pl4-how':'🚶 <strong>5 minutes on foot</strong> from home.',
+    'secret-lbl':'🤫 Local secret','secret-text':'Via Labicana 52 — A special spot only real Romans know about. Personally recommended by Massimiliano! 🏁',
+    'ph-man-eye':'Host recommendations','ph-man-title':'Where to eat',
+    'rt1':'Roman cuisine · San Pietro','rd1':'Authentic Roman cuisine near the Vatican. The host&#39;s top pick for an unforgettable dinner.','rtag1':'Nearby',
+    'rt2':'Traditional cuisine · San Pietro','rd2':'Welcoming atmosphere and quality cooking steps from the property. Excellent value for money.',
+    'rt3':'Osteria · Sincere cuisine','rd3':'An authentic osteria where Roman culinary tradition shines. Fresh ingredients and classic home-style dishes.','rtag3':'Tradition',
+    'rt4badge':'Bar · Breakfast','rt4':'Bar · Breakfast · Via Ottaviano 33','rd4':'Just outside the door! The neighbourhood historic bar, perfect for espresso and a classic Roman breakfast.','rtag4':'Next door',
+    'lbl-super':'🛒 Supermarket','txt-super':'<strong>Supermercato Pam</strong> at Via Ottaviano 17 — a 2 minute walk from home.',
+    'ph-mov-eye':'Transport & Emergencies','ph-mov-title':'Info & Getting around',
+    'mv0t':'From Fiumicino Airport','mv0d':'On exit you will find the <strong>official white taxis</strong>. Fixed fare ~<strong>50–60€</strong> to the city centre, Via Ottaviano 25.<br><br><strong>🚆 Leonardo Express</strong> → Roma Termini, then Metro A (dir. Battistini) → <strong>Ottaviano</strong>. Total ~55 min.',
+    'mv00t':'From Roma Termini','mv00d':'Take <strong>Metro A</strong> towards Battistini and get off at <strong>Ottaviano</strong> (4 stops, ~12 min). Then 5 minutes on foot.',
+    'mv1t':'Metro — Ottaviano stop','mv1d':'<strong>Ottaviano</strong> metro stop (Line A) is <strong>5 minutes on foot</strong> from home.',
+    'mv2t':'Bus','mv2d':'From <strong>Piazza Risorgimento</strong> (1 minute from home) numerous bus lines run to the historic centre.',
+    'mv3t':'Tickets','mv3d':'Single ticket <strong>~€1.50</strong>, valid 100 min on metro and bus.',
+    'mv4t':'Taxi & Apps','mv4d':'Taxi Roma: <a href="tel:060609" style="color:var(--amber);font-weight:600">060609</a><br>Apps: <strong>itTaxi</strong> or <strong>FREE NOW</strong>.',
+    'lbl-sos':'🆘 Emergency numbers',
+    'sos1n':'Emergency Room','sos1d':'Plesso Santa Maria Incoronata dell&#39;Olmo',
+    'sos2n':'Pharmacy','sos2d':'Pharmacy on Via Cola di Rienzo',
+    'sos3n':'Carabinieri','sos3d':'Police — emergencies',
+    'sos4n':'Fire Brigade','sos4d':'Fire, flooding, structural emergencies',
+    'sos5n':'Electrical panel','sos5d':'Inside the apartment',
+    'sos6n':'Gas / water valve','sos6d':'On the balcony',
+    'cb3-lbl':'Your host','cb3-btn':'Call',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'By 11:00 AM','st1d':'Please complete check-out by <strong>11:00 AM</strong>. For special needs contact us in advance.',
+    'st2t':'Close the door','st2d':'Close the door properly before leaving.',
+    'st3t':'Leave a review','st3d':'Your feedback means the world to us! Help us on <strong>Booking.com</strong> or <strong>Google Maps</strong>.',
+    'bye-title':'We hope to see you again soon!','bye-text':'We hope your stay at Le Stanze di Roma was wonderful!<br>— Massimiliano ❤️',
+    'nav-lbl-home':'Home','nav-lbl-sog':'Stay','nav-lbl-luo':'Places','nav-lbl-man':'Eat','nav-lbl-mov':'Around',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-guests-lbl':'Guests','s-maps-lbl':'Navigate',
+    'h-badge':'✦ PRATI · VATICAN · ROME'
+  }
+};
+
+var currentLang = 'it';
+
+function applyLang(lang){
+  var t = T[lang];
+  for(var id in t){
+    var el = document.getElementById(id);
+    if(el) el.innerHTML = t[id];
+  }
+}
+
+function openGuide(lang){
+  currentLang = lang;
+  applyLang(lang);
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('guide').classList.add('active');
+  switchTab('home');
+}
+
+function backToLanding(){
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('landing').classList.add('active');
+}
+
+function switchTab(name){
+  document.querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-'+name).classList.add('active');
+  var tabs=['home','soggiorno','luoghi','mangiare','muoversi'];
+  var idx=tabs.indexOf(name);
+  if(idx>=0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+  document.getElementById('tab-'+name).scrollTop=0;
+}
+</script>
+</body>
+</html>
