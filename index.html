@@ -311,14 +311,23 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
 
 /* ── POPUP PROMO ── */
 #promoPopup{position:fixed;inset:0;z-index:19000;display:flex;align-items:center;justify-content:center;background:rgba(44,32,20,.7);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .4s}
-#promoPopup.open{opacity:1;pointer-events:all}
-.promo-popup-box{position:relative;max-width:520px;width:92%;border-radius:2px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:promoIn .45s cubic-bezier(.22,1,.36,1) both}
+.promo-popup-box{position:relative;max-width:420px;max-height:90vh;width:92%;border-radius:2px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:promoIn .45s cubic-bezier(.22,1,.36,1) both}
 @keyframes promoIn{from{transform:scale(.88) translateY(20px)}to{transform:scale(1) translateY(0)}}
-.promo-popup-box img{display:block;width:100%;height:auto}
-.promo-popup-close{position:absolute;top:.6rem;right:.6rem;background:rgba(44,32,20,.75);color:#fff;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.promo-popup-box img{display:block;width:100%;height:auto;max-height:70vh;object-fit:cover}
+.promo-popup-close{position:absolute;top:.7rem;right:.7rem;background:rgba(0,0,0,.82);color:#fff;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;line-height:1}
 .promo-popup-close:hover{background:var(--dark)}
 .promo-popup-link{display:block;text-align:center;background:var(--gold);color:var(--dark);font-family:"Raleway",sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 1rem;text-decoration:none;transition:background .2s}
 .promo-popup-link:hover{background:#a8862e}
+
+/* ── SOCIAL BUTTONS IN REVIEWS ── */
+.social-cta{text-align:center;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(112,80,64,.15)}
+.social-cta-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);margin-bottom:1.2rem}
+.social-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.social-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.6rem;font-family:"Raleway",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:transform .2s,box-shadow .2s;border-radius:2px}
+.social-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.social-btn-fb{background:#1877F2;color:#fff}
+.social-btn-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
+.social-btn svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 
 /* ── RECENSIONI ── */
 #recensioni{background:var(--ivory-mid);padding:6rem 1.5rem}
@@ -348,13 +357,31 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
 .newsletter-note{font-size:.68rem;color:rgba(254,252,248,.3);letter-spacing:.06em}
 .newsletter-ok{display:none;color:var(--gold);font-size:.88rem;letter-spacing:.06em;margin-top:1rem}
 @media(max-width:600px){.newsletter-form{flex-direction:column}}
+
+/* ── FOOTER SOCIAL ICONS ── */
+.footer-socials{display:flex;justify-content:center;gap:1rem;margin-bottom:1rem}
+.footer-social-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s}
+.footer-social-icon:hover{transform:scale(1.15);opacity:.85}
+.footer-social-icon svg{width:20px;height:20px;fill:#fff}
+.footer-social-fb{background:#1877F2}
+.footer-social-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+
+/* ── POPUP ── */
+#promoPopup.open{opacity:1;pointer-events:all}
+.promo-popup-box{position:relative;max-width:420px;max-height:90vh;width:92%;border-radius:2px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:promoIn .45s cubic-bezier(.22,1,.36,1) both}
+@keyframes promoIn{from{transform:scale(.88) translateY(20px)}to{transform:scale(1) translateY(0)}}
+.promo-popup-box img{display:block;width:100%;height:auto;max-height:70vh;object-fit:cover}
+.promo-popup-close{position:absolute;top:.7rem;right:.7rem;background:rgba(0,0,0,.82);color:#fff;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;line-height:1}
+.promo-popup-close:hover{background:var(--dark)}
+.promo-popup-link{display:block;text-align:center;background:var(--gold);color:var(--dark);font-family:"Raleway",sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 1rem;text-decoration:none;transition:background .2s}
+.promo-popup-link:hover{background:#a8862e}
 </style>
-<script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano.jpeg?updatedAt=1774812500567","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano2.jpeg?updatedAt=1774812500862","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto2.jpeg?updatedAt=1774812500864","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto.jpeg?updatedAt=1774812500878","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/cucina.jpeg?updatedAt=1774812500865","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/fuori.jpeg?updatedAt=1774812500855","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno2.jpeg?updatedAt=1774812500856","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno1.jpeg?updatedAt=1774812500559","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/palazzo.jpeg?updatedAt=1774812833931","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/ingresso.jpeg?updatedAt=1774812833739"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"","parking":"","parking_link":""}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac"}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Appartamento elegante e luminoso nel cuore di Roma. Un soggiorno curato in ogni dettaglio,  con 2 stanze rinominate da noi la stanza di Francesca e la stanza di Gabriele. Nell'appartamento trovi un salotto, cucina attrezzata e un bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright apartment in the heart of Rome. A stay with attention to detail,  with 2 rooms renamed by us Francesca's room and Gabriele's room. In the apartment you will find a living room, equipped kitchen and a private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac","poi":"-metro Ottaviano a 4 minuti \n-mura vaticane a 8 minuti \n-piazza San pietro a 3 minuti \n-piazza risorgimento a 1 minuto\n-via cola di rienzo a 2 minuti"}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"Le Stanze di Roma","name_en":"The Rooms of Rome","desc":"Appartamento elegante e luminoso nel cuore di Roma. Un soggiorno curato in ogni dettaglio,  con 2 stanze rinominate da noi la stanza di Francesca e la stanza di Gabriele. Nell'appartamento trovi un salotto, cucina attrezzata e un bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright apartment in the heart of Rome. A stay with attention to detail,  with 2 rooms renamed by us Francesca's room and Gabriele's room. In the apartment you will find a living room, equipped kitchen and a private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac","poi":"-metro Ottaviano a 4 minuti \n-mura vaticane a 8 minuti \n-piazza San pietro a 3 minuti \n-piazza risorgimento a 1 minuto\n-via cola di rienzo a 2 minuti"}];</script></head>
+<script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano.jpeg?updatedAt=1774812500567","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/divano2.jpeg?updatedAt=1774812500862","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto2.jpeg?updatedAt=1774812500864","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/letto.jpeg?updatedAt=1774812500878","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/cucina.jpeg?updatedAt=1774812500865","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/fuori.jpeg?updatedAt=1774812500855","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno2.jpeg?updatedAt=1774812500856","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/bagno1.jpeg?updatedAt=1774812500559","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/palazzo.jpeg?updatedAt=1774812833931","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/ingresso.jpeg?updatedAt=1774812833739"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato e balcone.","desc_en":"Elegant and bright room in the heart of Rome. A stay curated in every detail, with living room, fully equipped kitchen, private bathroom and balcony.","tag":"Roma · Disponibile","tag_en":"Rome · Available","photos":["__FP__"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["__FP__","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"]}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"","parking":"","parking_link":""}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Camera elegante e luminosa nel cuore di Roma. Un soggiorno curato in ogni dettaglio, con salotto, cucina attrezzata, bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright room in the heart of Rome. A living room with attention to every detail, with a living room, fully equipped kitchen and private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac"}];</script><script>window.__EXPORTED_ROOMS__=[{"id":1,"name":"La Stanza di Francesca","name_en":"Francesca's Room","desc":"Appartamento elegante e luminoso nel cuore di Roma. Un soggiorno curato in ogni dettaglio,  con 2 stanze rinominate da noi la stanza di Francesca e la stanza di Gabriele. Nell'appartamento trovi un salotto, cucina attrezzata e un bagno privato. \nStruttura situata in un punto strategico di Roma in via Ottaviano 25. Contattateci per le disponibilità desiderate","desc_en":"Elegant and bright apartment in the heart of Rome. A stay with attention to detail,  with 2 rooms renamed by us Francesca's room and Gabriele's room. In the apartment you will find a living room, equipped kitchen and a private bathroom. \nStructure located in a strategic point of Rome in via Ottaviano 25. Contact us for the desired availability","tag":"Roma · Vaticano","tag_en":"Rome. The Vatican.","photos":["https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0043.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0027.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0020.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0042.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0031.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0034.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0032.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0036.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0033.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0037.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0030.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0026.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0029.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0028.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0024.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0025.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0022.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0018.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0023.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0021.jpg","https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260420-WA0017.jpg"],"map_link":"https://maps.app.goo.gl/BQiKo3xcMBqG8WWe6?g_st=ac","parking":"Garage vespasiano - a pagamento","parking_link":"https://maps.app.goo.gl/6mzKrakTnfNJTaD87?g_st=ac","poi":"-metro Ottaviano a 4 minuti \n-mura vaticane a 8 minuti \n-piazza San pietro a 3 minuti \n-piazza risorgimento a 1 minuto\n-via cola di rienzo a 2 minuti"}];</script></head>
 <body>
 
 <nav id="navbar">
   <a href="#home" class="nav-logo">
-    <img src="https://ik.imagekit.io/2gkrpnbbol/logo.jpeg" alt="Le Stanze di Roma">
+  <img src="https://ik.imagekit.io/2gkrpnbbol/logo.jpeg" alt="Le Stanze di Roma">
     <div class="nav-logo-text">Le Stanze di Roma<span>Appartamenti Turistici</span></div>
   </a>
   <ul class="nav-links">
@@ -601,6 +628,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
       <div class="servizio-card"><div class="servizio-icon">🍽️</div><div class="servizio-title" data-t="sv3_title">Accordi Ristoranti</div><p class="servizio-desc" data-t="sv3_text">Convenzioni con ristoranti selezionati.</p></div>
       <div class="servizio-card"><div class="servizio-icon">📋</div><div class="servizio-title" data-t="sv4_title">Gestione Prenotazioni</div><p class="servizio-desc" data-t="sv4_text">Gestiamo prenotazioni, comunicazioni e check-in al posto tuo.</p></div>
       <div class="servizio-card"><div class="servizio-icon"><img src="https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260421-WA0006.jpg?updatedAt=1776802156165" alt="Golf Car Roma" style="width:56px;height:56px;object-fit:contain;border-radius:6px"></div><div class="servizio-title" data-t="sv5_title">Golf Car Roma</div><p class="servizio-desc" data-t="sv5_text">Esplora Roma a bordo di una comoda golf car! Grazie alla nostra collaborazione con Exploring Rome, i nostri ospiti possono prenotare tour esclusivi in golf car per scoprire la città eterna in modo unico e rilassante.</p><a href="https://exploringrome.it/LE-STANZE-DI-ROMA/" target="_blank" rel="noopener" style="display:inline-block;margin-top:.8rem;background:var(--gold);color:var(--dark);padding:.5rem 1.2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#a8862e'" onmouseout="this.style.background='var(--gold)'">Prenota ora →</a></div>
+      <div class="servizio-card"><div class="servizio-icon"><img src="https://ik.imagekit.io/2gkrpnbbol/lastanzadiroma/IMG-20260424-WA0001(1).jpg" alt="Vikey" style="width:56px;height:56px;object-fit:contain;border-radius:6px"></div><div class="servizio-title" data-t="sv6_title">Check-in Digitale</div><p class="servizio-desc" data-t="sv6_text">Grazie a Vikey, i nostri ospiti effettuano il check-in in autonomia, in qualsiasi momento. Nessuna attesa, nessuna chiave fisica: accesso smart per un soggiorno senza pensieri.</p></div>
     </div>
   </div>
 </section>
@@ -794,80 +822,51 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
     <h2 class="section-title">Le <em>recensioni</em> dei nostri ospiti</h2>
     <div class="divider"></div>
     <div class="reviews-grid">
-
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Appartamento bellissimo, curato nei minimi dettagli. Posizione eccezionale, a pochi passi dal Vaticano e da Piazza San Pietro. Massimiliano è stato disponibile e gentilissimo per tutta la durata del soggiorno."</p>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div>
-            <div class="review-name">Sofia M.</div>
-            <div class="review-source">📍 Milano · Airbnb</div>
-          </div>
-        </div>
+        <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Sofia M.</div><div class="review-source">📍 Milano · Airbnb</div></div></div>
       </div>
-
       <div class="review-card reveal" style="transition-delay:.1s">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"We stayed for a week and it felt like home. The apartment is clean, spacious and perfectly located. The host was incredibly helpful with tips for the city. We will definitely come back!"</p>
-        <div class="review-author">
-          <div class="review-avatar">J</div>
-          <div>
-            <div class="review-name">James &amp; Clara T.</div>
-            <div class="review-source">🇬🇧 London · Booking.com</div>
-          </div>
-        </div>
+        <div class="review-author"><div class="review-avatar">J</div><div><div class="review-name">James & Clara T.</div><div class="review-source">🇬🇧 London · Booking.com</div></div></div>
       </div>
-
       <div class="review-card reveal" style="transition-delay:.2s">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Soggiorno perfetto per il nostro anniversario. La stanza era romantica e accogliente, con tutti i comfort. Torneremo sicuramente — Roma con Le Stanze è tutta un'altra esperienza."</p>
-        <div class="review-author">
-          <div class="review-avatar">L</div>
-          <div>
-            <div class="review-name">Luca &amp; Valentina R.</div>
-            <div class="review-source">📍 Napoli · Google</div>
-          </div>
-        </div>
+        <div class="review-author"><div class="review-avatar">L</div><div><div class="review-name">Luca & Valentina R.</div><div class="review-source">📍 Napoli · Google</div></div></div>
       </div>
-
       <div class="review-card reveal" style="transition-delay:.05s">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Alloggio che supera le aspettative: pulizia impeccabile, biancheria fresca, cucina attrezzata. Il quartiere è tranquillo ma comodissimo. Consiglio a chiunque voglia vivere Roma in modo autentico."</p>
-        <div class="review-author">
-          <div class="review-avatar">A</div>
-          <div>
-            <div class="review-name">Alessandra P.</div>
-            <div class="review-source">📍 Firenze · Airbnb</div>
-          </div>
-        </div>
+        <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Alessandra P.</div><div class="review-source">📍 Firenze · Airbnb</div></div></div>
       </div>
-
       <div class="review-card reveal" style="transition-delay:.15s">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Très bel appartement, très bien situé près du Vatican. Hôte très réactif et attentionné. Le quartier est calme et agréable, idéal pour explorer Rome à pied. Je recommande vivement!"</p>
-        <div class="review-author">
-          <div class="review-avatar">M</div>
-          <div>
-            <div class="review-name">Marie-Claire D.</div>
-            <div class="review-source">🇫🇷 Paris · Booking.com</div>
-          </div>
-        </div>
+        <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Marie-Claire D.</div><div class="review-source">🇫🇷 Paris · Booking.com</div></div></div>
       </div>
-
       <div class="review-card reveal" style="transition-delay:.25s">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Ho soggiornato per lavoro e ho trovato tutto ciò di cui avevo bisogno. WiFi veloce, silenzio, spazi comodi. Massimiliano è puntuale e preciso. La consiglio anche per chi viene a Roma per lavoro."</p>
-        <div class="review-author">
-          <div class="review-avatar">F</div>
-          <div>
-            <div class="review-name">Federico B.</div>
-            <div class="review-source">📍 Roma · Google</div>
-          </div>
-        </div>
+        <p class="review-text">"Ho soggiornato per lavoro e ho trovato tutto ciò di cui avevo bisogno. WiFi veloce, silenzio, spazi comodi. Massimiliano è puntuale e preciso. Consiglio anche per chi viene a Roma per lavoro."</p>
+        <div class="review-author"><div class="review-avatar">F</div><div><div class="review-name">Federico B.</div><div class="review-source">📍 Roma · Google</div></div></div>
       </div>
-
     </div>
+
+    <!-- SOCIAL CTA -->
+    <div class="social-cta reveal">
+      <p class="social-cta-label">Seguici anche sui social</p>
+      <div class="social-btns">
+        <a href="https://www.facebook.com/share/1DRk69AXK2/" target="_blank" rel="noopener" class="social-btn social-btn-fb">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.884v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg> Facebook
+        </a>
+        <a href="https://www.instagram.com/le_stanzediroma?igsh=dzFjc3BkcmliMHR4" target="_blank" rel="noopener" class="social-btn social-btn-ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -878,7 +877,7 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
     <p class="section-text">Offerte esclusive, disponibilità last-minute e aggiornamenti sul progetto Le Stanze. Niente spam, solo il meglio di Roma.</p>
     <form id="nlForm" onsubmit="submitNewsletter(event)">
       <div class="newsletter-form">
-        <input class="newsletter-input" type="email" id="nlEmail" placeholder="La tua email" required="">
+        <input class="newsletter-input" type="email" id="nlEmail" placeholder="La tua email" required>
         <button class="newsletter-btn" type="submit">Iscriviti →</button>
       </div>
       <p class="newsletter-note">Iscrivendoti accetti la nostra privacy policy. Disiscrizione in qualsiasi momento.</p>
@@ -888,6 +887,15 @@ footer{background:#0e0a05;padding:2rem;text-align:center}
 </section>
 
 <footer>
+  <div class="footer-socials">
+    <a href="https://www.facebook.com/share/1DRk69AXK2/" target="_blank" rel="noopener" class="footer-social-icon footer-social-fb" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.884v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/le_stanzediroma?igsh=dzFjc3BkcmliMHR4" target="_blank" rel="noopener" class="footer-social-icon footer-social-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+  </div>
+  
   <img src="https://ik.imagekit.io/2gkrpnbbol/logo.jpeg" alt="Le Stanze di Roma" class="footer-logo-img">
   <p class="footer-text" data-t="footer_copy">© 2026 Le Stanze di Roma · Vivi Roma, come a casa · Tutti i diritti riservati · by Mds Properties</p>
 </footer>
@@ -1510,25 +1518,22 @@ window.addEventListener('load',function(){
   }
 });
 
-
 // ── NEWSLETTER ──
-function submitNewsletter(e) {
+function submitNewsletter(e){
   e.preventDefault();
-  const email = document.getElementById('nlEmail').value.trim();
-  if (!email) return;
-  // Send via Formspree (free tier - delivers to infolestanzediroma@gmail.com)
-  fetch('https://formspree.io/f/xvzdvlny', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({email: email, _subject: 'Nuova iscrizione newsletter - Le Stanze di Roma'})
-  }).then(r => {
-    document.getElementById('nlForm').style.display = 'none';
-    document.getElementById('nlOk').style.display = 'block';
-  }).catch(() => {
-    // Fallback: open mailto
-    window.location.href = 'mailto:infolestanzediroma@gmail.com?subject=Iscrizione+Newsletter&body=Iscrizione+newsletter+di:+' + encodeURIComponent(email);
-    document.getElementById('nlForm').style.display = 'none';
-    document.getElementById('nlOk').style.display = 'block';
+  const email=document.getElementById('nlEmail').value.trim();
+  if(!email) return;
+  fetch('https://formspree.io/f/xvzdvlny',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({email:email,_subject:'Nuova iscrizione newsletter - Le Stanze di Roma'})
+  }).then(()=>{
+    document.getElementById('nlForm').style.display='none';
+    document.getElementById('nlOk').style.display='block';
+  }).catch(()=>{
+    window.location.href='mailto:infolestanzediroma@gmail.com?subject=Iscrizione+Newsletter&body='+encodeURIComponent(email);
+    document.getElementById('nlForm').style.display='none';
+    document.getElementById('nlOk').style.display='block';
   });
 }
 
