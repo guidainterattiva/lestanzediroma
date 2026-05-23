@@ -254,8 +254,8 @@ html,body{height:100%;font-family:'Jost',sans-serif;background:var(--bg);color:v
       <div class="hero-title" id="h-title" style="color:#fff !important">Le Stanze<em>di Roma</em></div>
       <div class="hero-addr" id="h-addr">Via Ottaviano 25 — Roma 00192</div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="stat-ico">🗝️</div><span class="stat-lbl" id="s-checkin-lbl">Check-in</span><div class="stat-val">15:00</div></div>
-        <div class="hero-stat"><div class="stat-ico">🚪</div><span class="stat-lbl" id="s-checkout-lbl">Check-out</span><div class="stat-val">11:00</div></div>
+        <div class="hero-stat"><div class="stat-ico">🗝️</div><span class="stat-lbl" id="s-checkin-lbl">Check-in</span><div class="stat-val">16:00</div></div>
+        <div class="hero-stat"><div class="stat-ico">🚪</div><span class="stat-lbl" id="s-checkout-lbl">Check-out</span><div class="stat-val">10:00</div></div>
         <div class="hero-stat"><div class="stat-ico">👥</div><span class="stat-lbl" id="s-guests-lbl">Ospiti</span><div class="stat-val">6</div></div>
         <div class="hero-stat" style="cursor:pointer" onclick="window.open('https://maps.google.com/?q=Via+Ottaviano+25+Roma','_blank')"><div class="stat-ico">🧭</div><span class="stat-lbl" id="s-maps-lbl">Naviga</span><div class="stat-val">Maps</div></div>
       </div>
@@ -327,8 +327,8 @@ html,body{height:100%;font-family:'Jost',sans-serif;background:var(--bg);color:v
 
       <div class="t-card">
         <div class="t-card-label" id="lbl-times">Check-in &amp; Check-out</div>
-        <div class="info-row"><span class="ir-label" id="lbl-ci">Check-in</span><span class="ir-value">dalle 15:00</span></div>
-        <div class="info-row"><span class="ir-label" id="lbl-co">Check-out</span><span class="ir-value">entro le 11:00</span></div>
+        <div class="info-row"><span class="ir-label" id="lbl-ci">Check-in</span><span class="ir-value">dalle 16:00</span></div>
+        <div class="info-row"><span class="ir-label" id="lbl-co">Check-out</span><span class="ir-value">entro le 10:00</span></div>
         <div class="info-row"><span class="ir-label" id="lbl-guests">Ospiti massimi</span><span class="ir-value">6 persone</span></div>
         <div class="info-row"><span class="ir-label" id="lbl-addr">Indirizzo</span><span class="ir-value">Via Ottaviano 25, Roma 00192</span></div>
       </div>
@@ -355,9 +355,9 @@ html,body{height:100%;font-family:'Jost',sans-serif;background:var(--bg);color:v
       <div class="wifi-card">
         <div class="wifi-ico">📡</div>
         <div class="wifi-net">WiFi</div>
-        <div class="wifi-name" id="wifi-name-val">In aggiornamento</div>
-        <div id="wifi-pwd-row" style="margin-bottom:12px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px" id="wifi-pwd-lbl">Password</div><div id="wifi-pwd" style="font-family:'Playfair Display',serif;font-size:20px;color:white;letter-spacing:1px">In aggiornamento</div></div>
-        <div class="wifi-tip" id="wifi-tip">📶 Segnale eccellente in tutta la struttura</div>
+        <div class="wifi-name" id="wifi-name-val">FRITZ!Box5530TN</div>
+        <div id="wifi-pwd-row" style="margin-bottom:12px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px" id="wifi-pwd-lbl">Password</div><div id="wifi-pwd" style="font-family:'Playfair Display',serif;font-size:20px;color:white;letter-spacing:1px">71345723287556681766</div></div>
+        <div class="wifi-tip" id="wifi-tip">📶 Segnale eccellente in tutta la struttura<br><br>📷 C'è anche il <strong>QR code sul muro</strong> — inquadralo con la fotocamera per connetterti automaticamente!</div>
       </div>
 
       <div class="t-card">
@@ -385,11 +385,7 @@ html,body{height:100%;font-family:'Jost',sans-serif;background:var(--bg);color:v
         <p class="sc-desc" id="sp3-desc">Bagno con doccia, asciugacapelli e ferro da stiro.</p>
         <div class="tags"><span class="tag" id="tag-shower">Doccia</span><span class="tag" id="tag-hairdryer">Asciugacapelli</span><span class="tag" id="tag-iron">Ferro da stiro</span></div>
       </div>
-      <div class="space-card">
-        <div class="sc-header"><span class="sc-ico">🌆</span><div class="sc-name" id="sp4-name">Balcone</div></div>
-        <p class="sc-desc" id="sp4-desc">Splendido balcone con <strong>vista panoramica su Roma</strong>.</p>
-        <div class="tags"><span class="tag" id="tag-view">Vista Roma</span></div>
-      </div>
+
 
       <div class="t-card">
         <div class="t-card-label" id="lbl-extras">Servizi Extra</div>
@@ -571,7 +567,7 @@ var T = {
     'lbl-access':'Come accedere','txt-access':'Per accedere all&#39;appartamento usa il link che ti inviamo dopo averci inviato i tuoi documenti.',
     'lbl-reach':'Come raggiungerci','txt-reach':'Siamo nel quartiere Prati, a pochi passi dalla basilica di San Pietro. La fermata metro più vicina è <strong>Ottaviano</strong> (Linea A), a 5 minuti a piedi da casa.','maps-reach-txt':'Apri su Google Maps',
     'lbl-parking':'Parcheggio','txt-parking':'Parcheggio disponibile nelle <strong>strade intorno alla struttura</strong>. Abbiamo inoltre una convenzione con il <strong>Parcheggio Vespasiano</strong> in Via Vespasiano — chiedici i dettagli!',
-    'wifi-name-val':'In aggiornamento','wifi-pwd-lbl':'Password','wifi-pwd':'In aggiornamento','wifi-tip':'📶 Segnale eccellente in tutta la struttura',
+    'wifi-name-val':'FRITZ!Box5530TN','wifi-pwd-lbl':'Password','wifi-pwd':'71345723287556681766','wifi-tip':'📶 Segnale eccellente in tutta la struttura<br><br>📷 C&#39;è anche il <strong>QR code sul muro</strong> — inquadralo con la fotocamera per connetterti automaticamente!',
     'lbl-rules':'Regole della Casa',
     'r1t':'Silenzio Notturno','r1d':'Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto, nel rispetto del vicinato.',
     'r2t':'Niente Fumo','r2d':'Vietato fumare all&#39;interno. Consentito solo sul balcone.',
@@ -624,7 +620,7 @@ var T = {
     'sos6n':'Valvola gas / acqua','sos6d':'Sul balcone',
     'cb3-lbl':'Il tuo host','cb3-btn':'Chiama',
     'lbl-checkout':'👋 Check-out',
-    'st1t':'Orario — entro le 11:00','st1d':'Ricordati di effettuare il check-out entro le <strong>11:00</strong>. Per esigenze particolari contattaci in anticipo.',
+    'st1t':'Orario — entro le 10:00','st1d':'Ricordati di effettuare il check-out entro le <strong>10:00</strong>. Per esigenze particolari contattaci in anticipo.',
     'st2t':'Chiudi la porta','st2d':'Chiudi bene la porta prima di uscire.',
     'st3t':'Lascia una recensione','st3d':'Il tuo giudizio è prezioso! Lascia una recensione e seguici:<br><br><div style="display:flex;flex-direction:column;gap:8px;margin-top:6px"><a href="https://www.booking.cn/Share-KEAL6J" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#003580"><svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="5" fill="#003580"/><text x="4" y="31" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="28" fill="white">B.</text></svg>Recensisci su Booking.com</a><a href="https://maps.app.goo.gl/3UWEtafRQWpK8vuU8?g_st=ac" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#4285F4"><svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 28 14 28s14-17.5 14-28c0-7.73-6.27-14-14-14z" fill="#EA4335"/><circle cx="24" cy="18" r="5" fill="white"/></svg>Recensisci su Google Maps</a><a href="https://www.facebook.com/share/1GsNhgBYXa/" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#1877F2"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Recensisci su Facebook</a><a href="https://www.instagram.com/le_stanzediroma?igsh=dzFjc3BkcmliMHR4" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Seguici su Instagram</a></div>',
     'bye-title':'Speriamo di rivederti presto!','bye-text':'Speriamo che il tuo soggiorno presso Le Stanze di Roma sia stato ottimo!<br>— Massimiliano ❤️',
@@ -646,7 +642,7 @@ var T = {
     'lbl-access':'How to access','txt-access':'To access the apartment use the link we send you after you have sent us your documents.',
     'lbl-reach':'How to reach us','txt-reach':'We are in the Prati neighbourhood, steps from St. Peter&#39;s Basilica. The nearest metro stop is <strong>Ottaviano</strong> (Line A), just 5 minutes on foot.','maps-reach-txt':'Open on Google Maps',
     'lbl-parking':'Parking','txt-parking':'Street parking is available <strong>around the property</strong>. We also have an arrangement with <strong>Parcheggio Vespasiano</strong> on Via Vespasiano — ask us for details!',
-    'wifi-name-val':'To be confirmed','wifi-pwd-lbl':'Password','wifi-pwd':'To be confirmed','wifi-tip':'📶 Excellent signal throughout the apartment',
+    'wifi-name-val':'FRITZ!Box5530TN','wifi-pwd-lbl':'Password','wifi-pwd':'71345723287556681766','wifi-tip':'📶 Excellent signal throughout the apartment<br><br>📷 There is also a <strong>QR code on the wall</strong> — scan it with your camera to connect automatically!',
     'lbl-rules':'House Rules',
     'r1t':'Quiet Hours','r1d':'From 11:00 PM to 8:00 AM please keep noise levels down, out of respect for neighbours.',
     'r2t':'No Smoking','r2d':'Smoking is not allowed indoors. Permitted on the balcony only.',
@@ -699,7 +695,7 @@ var T = {
     'sos6n':'Gas / water valve','sos6d':'On the balcony',
     'cb3-lbl':'Your host','cb3-btn':'Call',
     'lbl-checkout':'👋 Check-out',
-    'st1t':'By 11:00 AM','st1d':'Please complete check-out by <strong>11:00 AM</strong>. For special needs contact us in advance.',
+    'st1t':'By 10:00 AM','st1d':'Please complete check-out by <strong>10:00 AM</strong>. For special needs contact us in advance.',
     'st2t':'Close the door','st2d':'Close the door properly before leaving.',
     'st3t':'Leave a review','st3d':'Your feedback means the world to us! Leave a review and follow us:<br><br><div style="display:flex;flex-direction:column;gap:8px;margin-top:6px"><a href="https://www.booking.cn/Share-KEAL6J" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#003580"><svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="5" fill="#003580"/><text x="4" y="31" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="28" fill="white">B.</text></svg>Review on Booking.com</a><a href="https://maps.app.goo.gl/3UWEtafRQWpK8vuU8?g_st=ac" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#4285F4"><svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 28 14 28s14-17.5 14-28c0-7.73-6.27-14-14-14z" fill="#EA4335"/><circle cx="24" cy="18" r="5" fill="white"/></svg>Review on Google Maps</a><a href="https://www.facebook.com/share/1GsNhgBYXa/" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:#1877F2"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Review on Facebook</a><a href="https://www.instagram.com/le_stanzediroma?igsh=dzFjc3BkcmliMHR4" target="_blank" style="display:flex;align-items:center;gap:10px;border-radius:11px;padding:11px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#fff;margin-top:0;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Follow us on Instagram</a></div>',
     'bye-title':'We hope to see you again soon!','bye-text':'We hope your stay at Le Stanze di Roma was wonderful!<br>— Massimiliano ❤️',
