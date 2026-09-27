@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="it" id="htmlRoot"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1621,7 +1622,10 @@ function editAddFile(roomId,input){
 // This is called synchronously before renderRooms(), so the grid is empty.
 // Used by exportSite() to avoid duplicating base64 images in outerHTML.
 const PAGE_TEMPLATE = (function() {
-  return document.documentElement.outerHTML;
+  // outerHTML never includes the doctype, so it has to be put back by hand —
+  // otherwise every export cycle silently strips it and the published page
+  // falls back to the browser's legacy "quirks mode".
+  return "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
 })();
 
 // ── AI AUTO-TRANSLATE via MyMemory (free, no API key needed) ────────────────
